@@ -12,7 +12,7 @@
                             </h1>
                             <h1>
                                 ACRESCENTI PLATAFORMA
-                                Teste GitHub > King Host
+                                Teste GitHub > King Host 2
                             </h1>
                             <small>
                                 It is an application skeleton for a typical web app. You can use it to quickly bootstrap your webapp projects.
