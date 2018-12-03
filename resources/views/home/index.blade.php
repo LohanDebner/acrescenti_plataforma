@@ -11,7 +11,7 @@
                                 Welcome ACRESCENTI
                             </h1>
                             <small>
-                                Teste de Laravel no Servidor
+                                Teste de Laravel no Servidor - Cópia
                             </small>
                         </div>
                     </div>
