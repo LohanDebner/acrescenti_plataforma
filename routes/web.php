@@ -13,3 +13,7 @@
 
 Route::get('/', 'HomeController@index')->name("main");
 Route::get('/minor', 'HomeController@minor')->name("minor");
+Route::get('/contato', 'OutrosController@contato')->name("contato");
+/*Route::get('/contato',function(){
+    return view('contato');
+});*/
