@@ -1,28 +1,28 @@
-@extends('layouts.app')
+<?php $__env->startSection('title', 'Contato'); ?>
 
-@section('title', 'Contato')
-
-@section('content')
+<?php $__env->startSection('content'); ?>
     <div class="wrapper wrapper-content animated fadeInRight">
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="text-center m-t-lg">
                             <h1>
-                                Contato do plataforma-1
+                                Contato
                             </h1>
                             <small>
-                                Teste vindo do repositório
+                                Contato Teste2
                             </small>
                         </div>
                         <div class="team-member">
                             <ul>
-                                @foreach($tasks as $task)
+                                <?php $__currentLoopData = $tasks; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $task): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                     <li><?= $task; ?></li>
-                                @endforeach
+                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                             </ul>
                             
                         </div>
                     </div>
                 </div>
             </div>
-@endsection
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('layouts.app', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
