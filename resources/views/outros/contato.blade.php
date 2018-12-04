@@ -11,7 +11,7 @@
                                 Contato do plataforma-1
                             </h1>
                             <small>
-                                Teste INDO paro o GITHUB
+                                Teste INDO para o KINGHOST
                             </small>
                         </div>
                         <div class="team-member">
