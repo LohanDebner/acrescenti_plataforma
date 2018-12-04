@@ -12,6 +12,7 @@
                             </h1>
                             <small>
                                 Mais um teste do repositório
+                                Teste de Commit
                             </small>
                         </div>
                     </div>
