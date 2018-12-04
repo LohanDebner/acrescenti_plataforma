@@ -11,7 +11,7 @@
                                 Contato do plataforma-1
                             </h1>
                             <small>
-                                Teste vindo do repositório
+                                Teste INDO paro o GITHUB
                             </small>
                         </div>
                         <div class="team-member">
