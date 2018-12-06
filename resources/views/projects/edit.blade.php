@@ -30,18 +30,18 @@
                             </div>
 
                             <button type="submit" class="btn btn-w-m btn-success block full-width m-b">Salvar</button>
+                        </form>
+                        <form method="POST" action="/projects/{{$project->id}}">
+                            
+                            {{csrf_field()}} 
+                            {{method_field('DELETE')}}
 
-                            <form method="POST" action="/projects/{{$project->id}}">
-                                
-                                {{csrf_field()}} 
-                                {{method_field('PATCH')}}
+                            <button type="submit" class="btn btn-outline btn-danger btn-xs block full-width m-b">Deletar</button>
+                        </form>
 
-                                <button type="submit" class="btn btn-outline btn-danger btn-xs block full-width m-b">Deletar</button>
-                            </form>
-
-                            <a href="#" hidden><small>Forgot password?</small></a>
+                        <a href="#" hidden><small>Forgot password?</small></a>
                                     
-                            </form>
+                            
                               
                         </div>
                     </div>
