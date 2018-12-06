@@ -1,6 +1,6 @@
-@extends('layouts.app')
 
-@section('title', 'Contato')
+@extends('layouts.app')
+@section('title', 'PROJECTS')
 
 @section('content')
     <div class="wrapper wrapper-content animated fadeInRight">
@@ -8,20 +8,18 @@
                     <div class="col-lg-12">
                         <div class="text-center m-t-lg">
                             <h1>
-                                Contato do plataforma-1
+                                VIEW PROJECTS
                             </h1>
                             <small>
-                                Teste INDO para o KINGHOST
+                                Testando criação de MVC
                             </small>
                         </div>
                         <div class="team-member">
                             <ul>
-                                @foreach($tasks as $task)
-                                    <!--<li><?= $task; ?></li>-->
-                                    <li>{{ $task }}</li>
+                                @foreach ($projeto as $item)
+                                    <li>{{ $item->title}}</li>
                                 @endforeach
-
-                                <li>{{ $parametro }}</li>
+                               
 
                             </ul>
                             

@@ -1,15 +1,20 @@
 <?php
+//php artisan make:controller NovoController
 
 namespace App\Http\Controllers;
 
-class OutrosController extends Controller
+use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+
+class NovoController extends Controller
 {
-    public function contato(){
+    public function novo()
+    {
         $tasks = [
             'tarefa 1',
             'tarefa 2',
             'tarefa 3',
-            'tarefa 4'
+            'tarefa Novo'
         ];
 
         $parameter = request('parametro');
@@ -18,4 +23,3 @@ class OutrosController extends Controller
         return view('outros/contato')->withTasks($tasks)->withParametro($parameter);
     }
 }
-

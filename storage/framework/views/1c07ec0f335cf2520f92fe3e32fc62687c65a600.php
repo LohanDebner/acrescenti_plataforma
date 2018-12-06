@@ -18,20 +18,20 @@
                     IN+
                 </div>
             </li>
-            <li class="{{ isActiveRoute('main') }}">
-                <a href="{{ url('/') }}"><i class="fa fa-th-large"></i> <span class="nav-label">Main view</span></a>
+            <li class="<?php echo e(isActiveRoute('main')); ?>">
+                <a href="<?php echo e(url('/')); ?>"><i class="fa fa-th-large"></i> <span class="nav-label">Main view</span></a>
             </li>
-            <li class="{{ isActiveRoute('minor') }}">
-                <a href="{{ url('/minor') }}"><i class="fa fa-th-large"></i> <span class="nav-label">Minor view</span> </a>
+            <li class="<?php echo e(isActiveRoute('minor')); ?>">
+                <a href="<?php echo e(url('/minor')); ?>"><i class="fa fa-th-large"></i> <span class="nav-label">Minor view</span> </a>
             </li>
-            <li class="{{ isActiveRoute('projects') }}">
-                <a href="{{ url('/projects') }}"><i class="fa fa-th-large"></i> <span class="nav-label">PROJECTS</span> </a>
+            <li class="<?php echo e(isActiveRoute('projects')); ?>">
+                <a href="<?php echo e(url('/projects')); ?>"><i class="fa fa-th-large"></i> <span class="nav-label">PROJECTS</span> </a>
             </li>
-            <li class="{{ isActiveRoute('projects/create') }}">
-                    <a href="{{ url('/projects/create') }}"><i class="fa fa-th-large"></i> <span class="nav-label">Create</span> </a>
+            <li class="<?php echo e(isActiveRoute('projects/create')); ?>">
+                    <a href="<?php echo e(url('/projects/create')); ?>"><i class="fa fa-th-large"></i> <span class="nav-label">Create</span> </a>
             </li>
-            <li class="{{ isActiveRoute('projects/edit') }}">
-                <a href="{{ url('/projects/1/edit') }}"><i class="fa fa-th-large"></i> <span class="nav-label">Edit</span> </a>
+            <li class="<?php echo e(isActiveRoute('projects/edit')); ?>">
+                <a href="<?php echo e(url('/projects/1/edit')); ?>"><i class="fa fa-th-large"></i> <span class="nav-label">Edit</span> </a>
         </li>
           
             
