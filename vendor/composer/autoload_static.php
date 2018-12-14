@@ -254,6 +254,7 @@ class ComposerStaticInit58af64f598350925eee704203392b3dc
     public static $classMap = array (
         'ArithmeticError' => __DIR__ . '/..' . '/symfony/polyfill-php70/Resources/stubs/ArithmeticError.php',
         'AssertionError' => __DIR__ . '/..' . '/symfony/polyfill-php70/Resources/stubs/AssertionError.php',
+        'CRUD' => __DIR__ . '/../..' . '/database/migrations/2018_12_10_184750_CRUD.php',
         'CreatePasswordResetsTable' => __DIR__ . '/../..' . '/database/migrations/2014_10_12_100000_create_password_resets_table.php',
         'CreateProjectTable' => __DIR__ . '/../..' . '/database/migrations/2018_12_06_135327_create_project_table.php',
         'CreateUsersTable' => __DIR__ . '/../..' . '/database/migrations/2014_10_12_000000_create_users_table.php',

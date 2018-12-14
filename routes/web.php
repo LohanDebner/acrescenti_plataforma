@@ -27,6 +27,8 @@ Route::get('/minor', 'HomeController@minor')->name("minor");
 
 
 Route::resource('/projects','ProjectsController');
+Route::resource('/aluno','AlunoController'); 
+
 /*
 Route::get('/projects','ProjectsController@index');
 Route::get('/projects/create','ProjectsController@create');

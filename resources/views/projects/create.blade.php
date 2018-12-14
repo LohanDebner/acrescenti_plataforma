@@ -1,6 +1,6 @@
 
-@extends('layouts.appLogin')
-@section('title', 'Create')
+@extends('layouts.app')
+@section('title', 'Cadastro')
 
 @section('content')
     <div class="wrapper wrapper-content animated fadeInRight">

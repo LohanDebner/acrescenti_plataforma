@@ -9,7 +9,7 @@
                                 Welcome ACRESCENTI
                             </h1>
                             <small>
-                                Ir para Contatos -> <a href="/contato">CONTATO</a>
+                                Mais um teste do repositório
                             </small>
                         </div>
                     </div>
