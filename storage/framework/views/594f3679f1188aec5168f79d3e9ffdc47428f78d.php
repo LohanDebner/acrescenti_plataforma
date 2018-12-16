@@ -1,4 +1,4 @@
-<?php $__env->startSection('title', 'Create'); ?>
+<?php $__env->startSection('title', 'Cadastro'); ?>
 
 <?php $__env->startSection('content'); ?>
     <div class="wrapper wrapper-content animated fadeInRight">
@@ -39,4 +39,4 @@
 <?php $__env->stopSection(); ?>
 
 
-<?php echo $__env->make('layouts.appLogin', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+<?php echo $__env->make('layouts.app', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

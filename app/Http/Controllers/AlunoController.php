@@ -36,7 +36,7 @@ class AlunoController extends Controller
      */
     public function store()
     {
-        /* $aluno = new Aluno();
+       /*  $aluno = new Aluno();
         $aluno->nome = request('nome');
         $aluno->CPF = request('CPF');
         $aluno->RG = request('RG');
@@ -59,11 +59,11 @@ class AlunoController extends Controller
         $aluno->CPFResponsavel = request('CPFResponsavel');
 
         $aluno->save();
+*/
+        //return "Cadastrado com Sucesso!"; 
 
-        return "Cadastrado com Sucesso!"; */
-
-        /* dd(request()->all()); */
-        return redirect('/projects');
+         dd(request()->all()); 
+        //return view('projects.create');
     }
 
     /**

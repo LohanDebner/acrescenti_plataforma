@@ -1,8 +1,7 @@
-@extends('layouts.app')
-@section('title', 'Create')
+<?php $__env->startSection('title', 'Create'); ?>
 <link href="css/plugins/datapicker/datepicker3.css" rel="stylesheet">
 <link href="css/plugins/daterangepicker/daterangepicker-bs3.css" rel="stylesheet">
-@section('content')
+<?php $__env->startSection('content'); ?>
 <div class="row wrapper border-bottom white-bg page-heading">
         <div class="col-lg-10">
             <h2>Cadastro de Aluno</h2>
@@ -32,7 +31,7 @@
         <div class="ibox-content">
 
             <form  class="m-t" role="form" action="/aluno" method="POST">
-                {{csrf_field()}} 
+                <?php echo e(csrf_field()); ?> 
 
                 <div class="form-group  row">
                     <div class="col-md-1"><label class="col-sm-2 col-form-label">Nome</label></div>
@@ -231,4 +230,5 @@
 </div>
 </div>
 
-@endsection
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('layouts.app', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
