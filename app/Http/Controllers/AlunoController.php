@@ -15,7 +15,8 @@ class AlunoController extends Controller
      */
     public function index()
     {
-      
+      $aluno = Aluno::all();
+      return view('aluno.index',['aluno'=>$aluno]);
     }
 
     /**
@@ -36,13 +37,15 @@ class AlunoController extends Controller
      */
     public function store()
     {
-       /*  $aluno = new Aluno();
+        $aluno = new Aluno();
         $aluno->nome = request('nome');
         $aluno->CPF = request('CPF');
         $aluno->RG = request('RG');
-        $aluno->Emissor = request('Emissor');
+        $aluno->EmissorRG = request('EmissorRG');
         $aluno->Sexo = request('Sexo');
-        $aluno->Nascimento = request('Nascimento');
+        $dataNascimento= request('DataNascimento');
+        $dataNascimento= explode("/",$dataNascimento);       
+        $aluno->DataNascimento = $dataNascimento[2]."-".$dataNascimento[1]."-".$dataNascimento[0];
         $aluno->Telefone1 = request('Telefone1');
         $aluno->Telefone2 = request('Telefone2');
         $aluno->Telefone3 = request('Telefone3');
@@ -54,15 +57,19 @@ class AlunoController extends Controller
         $aluno->Bairro = request('Bairro');
         $aluno->Cidade = request('Cidade');
         $aluno->Estado = request('Estado');
-        $aluno->DataIngresso = request('DataIngresso');
+        $dataIngresso= request('DataIngresso');
+        $dataIngresso= explode("/",$dataIngresso);
+        $aluno->DataIngresso = $dataIngresso[2]."-".$dataIngresso[1]."-".$dataIngresso[0];
         $aluno->NomeResponsavel = request('NomeResponsavel');
         $aluno->CPFResponsavel = request('CPFResponsavel');
 
         $aluno->save();
-*/
+
+        return redirect ('/aluno');
+
         //return "Cadastrado com Sucesso!"; 
 
-         dd(request()->all()); 
+         // dd(request()->all()); 
         //return view('projects.create');
     }
 
@@ -87,7 +94,7 @@ class AlunoController extends Controller
     {
         $aluno = Aluno::findOrFail($id);
 
-        return view('Aluno.create', compact('aluno'));
+        return view('aluno.edit', compact('aluno'));
     }
 
     /**
@@ -99,13 +106,15 @@ class AlunoController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $aluno = Aluno::find($id);
+        $aluno = new Aluno();
         $aluno->nome = request('nome');
         $aluno->CPF = request('CPF');
         $aluno->RG = request('RG');
-        $aluno->Emissor = request('Emissor');
+        $aluno->EmissorRG = request('EmissorRG');
         $aluno->Sexo = request('Sexo');
-        $aluno->Nascimento = request('Nascimento');
+        $dataNascimento= request('DataNascimento');
+        $dataNascimento= explode("/",$dataNascimento);       
+        $aluno->DataNascimento = $dataNascimento[2]."-".$dataNascimento[1]."-".$dataNascimento[0];
         $aluno->Telefone1 = request('Telefone1');
         $aluno->Telefone2 = request('Telefone2');
         $aluno->Telefone3 = request('Telefone3');
@@ -117,7 +126,9 @@ class AlunoController extends Controller
         $aluno->Bairro = request('Bairro');
         $aluno->Cidade = request('Cidade');
         $aluno->Estado = request('Estado');
-        $aluno->DataIngresso = request('DataIngresso');
+        $dataIngresso= request('DataIngresso');
+        $dataIngresso= explode("/",$dataIngresso);
+        $aluno->DataIngresso = $dataIngresso[2]."-".$dataIngresso[1]."-".$dataIngresso[0];
         $aluno->NomeResponsavel = request('NomeResponsavel');
         $aluno->CPFResponsavel = request('CPFResponsavel');
 
@@ -135,6 +146,7 @@ class AlunoController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Aluno::find($id)->delete();
+        return redirect('/aluno');
     }
 }

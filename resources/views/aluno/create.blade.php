@@ -8,7 +8,7 @@
             <h2>Cadastro de Aluno</h2>
             <ol class="breadcrumb">
                 <li class="breadcrumb-item">
-                    <a href="index.html">Início</a>
+                    <a href="/aluno">Início</a>
                 </li>
                 <li class="breadcrumb-item">
                     <a>Aluno</a>
@@ -57,26 +57,21 @@
 
                 <div class="form-group  row">
                     <div class="col-md-6"><label class="col-md-2 col-form-label">Órgão emissor RG</label>
-                    <div class="col-md-2"><input type="text" name="Emissor" class="form-control"></div>
+                    <div class="col-md-2"><input type="text" name="EmissorRG" class="form-control"></div>
                 </div></div>
 
                  <div class="hr-line-dashed"></div> 
 
                  <div class="form-group  row">
-                    <div class="col-md-6"><label class="col-md-2 col-form-label">Sexo<br></label>
-                    <div class="col-sm-5">
-                            <div class="i-checks"><label class=""> <div class="iradio_square-green checked" style="position: relative;"><input type="radio" value="option1" name="a" style="position: absolute; opacity: 0;"><ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins></div> <i></i> Opção 1 </label></div>
-                            <div class="i-checks"><label class=""> <div class="iradio_square-green checked" style="position: relative;"><input type="radio" value="option1" name="a" style="position: absolute; opacity: 0;"><ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins></div> <i></i> Opção 1 </label></div>
-                            <div class="i-checks"><label class=""> <div class="iradio_square-green checked" style="position: relative;"><input type="radio" value="option1" name="a" style="position: absolute; opacity: 0;"><ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins></div> <i></i> Opção 1 </label></div>
-                    </div>
-                    </div>  
-                </div>
+                    <div class="col-md-6"><label class="col-md-2 col-form-label">sexo</label>
+                    <div class="col-md-2"><input type="text" name="Sexo" class="form-control"></div>
+                </div></div>
 
                 <div class="hr-line-dashed"></div>
 
                 <div class="form-group row">                
                     <div class="form-group" id="data_3"> <label class="col-md-2 col-form-label">Data de Nascimento</label>
-                        <div class="input-group date"><span class="input-group-addon"><i class="fa fa-calendar"></i></span><input type="text" name="Nascimento" class="col-sm-2 col-form-label" value="10/11/2013">
+                        <div class="input-group date"><span class="input-group-addon"><i class="fa fa-calendar"></i></span><input type="text" name="DataNascimento" class="col-sm-2 col-form-label" value="10/11/2013">
                         </div>
                      </div>
                 </div>     

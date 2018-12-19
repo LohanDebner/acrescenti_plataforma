@@ -16,12 +16,12 @@ class CreateAlunoTable extends Migration
         Schema::create('Alunos',function(Blueprint $table){
             $table->increments('id')->unique();
             $table->string('Nome');
-            $table->string('CPF')->unique();
+            $table->string('CPF')->unique();                   
             $table->string('RG')->unique();
             $table->string('EmissorRG');
             $table->integer('Sexo');
-            $table->datetime('Nascimento');
-            $table->string('Telefone1')->unique();
+            $table->date('DataNascimento');
+            $table->string('Telefone1');
             $table->string('Telefone2');
             $table->string('Telefone3');
             $table->string('Email');
@@ -32,10 +32,10 @@ class CreateAlunoTable extends Migration
             $table->string('Bairro');
             $table->string('Cidade');
             $table->string('Estado');
-            $table->datetime('DataIngresso');
+            $table->date('DataIngresso');
             $table->string('NomeResponsavel');
-            $table->string('CPFResponsavel')->unique();
-            
+            $table->string('CPFResponsavel');        
+            $table->timestamps();     
         });
     }
 

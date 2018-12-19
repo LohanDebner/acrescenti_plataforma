@@ -32,7 +32,10 @@
             </li>
             <li class="{{ isActiveRoute('projects/edit') }}">
                 <a href="{{ url('/projects/1/edit') }}"><i class="fa fa-th-large"></i> <span class="nav-label">Edit</span> </a>
-        </li>
+            </li>
+            <li class="{{ isActiveRoute('aluno/create') }}">
+            <a href="{{ url('aluno/create') }}"><i class="fa fa-th-large"></i> <span class="nav-label">Cadastro de Aluno</span> </a>
+            </li>
           
             
         </ul>
