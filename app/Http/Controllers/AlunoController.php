@@ -62,10 +62,11 @@ class AlunoController extends Controller
         $aluno->DataIngresso = $dataIngresso[2]."-".$dataIngresso[1]."-".$dataIngresso[0];
         $aluno->NomeResponsavel = request('NomeResponsavel');
         $aluno->CPFResponsavel = request('CPFResponsavel');
+        $aluno->Status = request('Status');
 
         $aluno->save();
 
-        return redirect ('/aluno');
+        return redirect ('/aluno/list');
 
         //return "Cadastrado com Sucesso!"; 
 
@@ -81,7 +82,8 @@ class AlunoController extends Controller
      */
     public function show($id)
     {
-        //
+        $aluno = Aluno::all();
+        return view('aluno.list',['aluno'=>$aluno]);
     }
 
     /**
@@ -131,10 +133,11 @@ class AlunoController extends Controller
         $aluno->DataIngresso = $dataIngresso[2]."-".$dataIngresso[1]."-".$dataIngresso[0];
         $aluno->NomeResponsavel = request('NomeResponsavel');
         $aluno->CPFResponsavel = request('CPFResponsavel');
+        $aluno->Status = request('Status');
 
         $aluno->save();
 
-        return redirect ('/aluno.create');
+        return redirect ('/aluno/list');
 
     }
 
@@ -147,6 +150,6 @@ class AlunoController extends Controller
     public function destroy($id)
     {
         Aluno::find($id)->delete();
-        return redirect('/aluno');
+        return redirect('/aluno/list');
     }
 }

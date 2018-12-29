@@ -16,6 +16,7 @@
                         <div class="team-member">
                             <ul>
                                 @foreach ($aluno as $item)
+                                    <li>{{ $item->id}}</li>
                                     <li>{{ $item->Nome}}</li>
                                     <li>{{ $item->CPF}}</li>
                                     <li>{{ $item->RG}}</li>
@@ -36,6 +37,7 @@
                                     <li>{{ $item->DataIngresso}}</li>
                                     <li>{{ $item->NomeResponsavel}}</li>
                                     <li>{{ $item->CPFResponsavel}}</li>
+                                    <li>{{ $item->Status}}</li>
 
                                 @endforeach
                                

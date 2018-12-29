@@ -15,6 +15,7 @@
                         <div class="team-member">
                             <ul>
                                 <?php $__currentLoopData = $aluno; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                    <li><?php echo e($item->id); ?></li>
                                     <li><?php echo e($item->Nome); ?></li>
                                     <li><?php echo e($item->CPF); ?></li>
                                     <li><?php echo e($item->RG); ?></li>
@@ -35,6 +36,7 @@
                                     <li><?php echo e($item->DataIngresso); ?></li>
                                     <li><?php echo e($item->NomeResponsavel); ?></li>
                                     <li><?php echo e($item->CPFResponsavel); ?></li>
+                                    <li><?php echo e($item->Status); ?></li>
 
                                 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                
