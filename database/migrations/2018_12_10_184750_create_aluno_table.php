@@ -20,7 +20,7 @@ class CreateAlunoTable extends Migration
             $table->string('RG')->unique();
             $table->string('EmissorRG');
             $table->integer('Sexo');
-            $table->date('DataNascimento');
+            $table->datetime('DataNascimento');
             $table->string('Telefone1');
             $table->string('Telefone2');
             $table->string('Telefone3');
@@ -32,10 +32,11 @@ class CreateAlunoTable extends Migration
             $table->string('Bairro');
             $table->string('Cidade');
             $table->string('Estado');
-            $table->date('DataIngresso');
+            $table->datetime('DataIngresso');
             $table->string('NomeResponsavel');
-            $table->string('CPFResponsavel');        
-            $table->timestamps();     
+            $table->string('CPFResponsavel');  
+            $table->string('Status');      
+            $table->timestamps();        
         });
     }
 

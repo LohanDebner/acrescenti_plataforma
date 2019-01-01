@@ -21,20 +21,9 @@
             <li class="<?php echo e(isActiveRoute('main')); ?>">
                 <a href="<?php echo e(url('/')); ?>"><i class="fa fa-th-large"></i> <span class="nav-label">Main view</span></a>
             </li>
-            <li class="<?php echo e(isActiveRoute('minor')); ?>">
-                <a href="<?php echo e(url('/minor')); ?>"><i class="fa fa-th-large"></i> <span class="nav-label">Minor view</span> </a>
-            </li>
-            <li class="<?php echo e(isActiveRoute('projects')); ?>">
-                <a href="<?php echo e(url('/projects')); ?>"><i class="fa fa-th-large"></i> <span class="nav-label">PROJECTS</span> </a>
-            </li>
-            <li class="<?php echo e(isActiveRoute('projects/create')); ?>">
-                    <a href="<?php echo e(url('/projects/create')); ?>"><i class="fa fa-th-large"></i> <span class="nav-label">Create</span> </a>
-            </li>
-            <li class="<?php echo e(isActiveRoute('projects/edit')); ?>">
-                <a href="<?php echo e(url('/projects/1/edit')); ?>"><i class="fa fa-th-large"></i> <span class="nav-label">Edit</span> </a>
-            </li>
-            <li class="<?php echo e(isActiveRoute('aluno/create')); ?>">
-            <a href="<?php echo e(url('aluno/create')); ?>"><i class="fa fa-th-large"></i> <span class="nav-label">Cadastro de Aluno</span> </a>
+            
+            <li class="<?php echo e(isActiveRoute('aluno')); ?>">
+            <a href="<?php echo e(url('aluno')); ?>"><i class="fa fa-th-large"></i> <span class="nav-label">Alunos</span> </a>
             </li>
           
             
