@@ -104,6 +104,11 @@ class AlunoController extends Controller
         $aluno->DataIngresso = $dataIngresso[2]."-".$dataIngresso[1]."-".$dataIngresso[0];
 
         $aluno->NomeResponsavel = request('NomeResponsavel');
+<<<<<<< HEAD
+=======
+        $aluno->CPFResponsavel = request('CPFResponsavel');
+        $aluno->Status = request('Status');
+>>>>>>> 5b24123bbaf40a37d60e6ef0896e61d78c8dc69d
 
         //CPF
         $CPFResponsavel = request('CPFResponsavel');
@@ -111,7 +116,11 @@ class AlunoController extends Controller
         $CPFResponsavel = str_replace(".","",$CPFResponsavel);        
         $aluno->CPFResponsavel = $CPFResponsavel;
 
+<<<<<<< HEAD
         $aluno->Status = request('Status');
+=======
+        return redirect ('/aluno/list');
+>>>>>>> 5b24123bbaf40a37d60e6ef0896e61d78c8dc69d
 
 
         $aluno->save();
@@ -125,7 +134,11 @@ class AlunoController extends Controller
     public function show($id)
     {
         $aluno = Aluno::all();
+<<<<<<< HEAD
         return view('aluno.index',['aluno'=>$aluno]);
+=======
+        return view('aluno.list',['aluno'=>$aluno]);
+>>>>>>> 5b24123bbaf40a37d60e6ef0896e61d78c8dc69d
     }
 
     public function edit($id)
@@ -250,6 +263,11 @@ class AlunoController extends Controller
         $aluno->DataIngresso = $dataIngresso[2]."-".$dataIngresso[1]."-".$dataIngresso[0];
 
         $aluno->NomeResponsavel = request('NomeResponsavel');
+<<<<<<< HEAD
+=======
+        $aluno->CPFResponsavel = request('CPFResponsavel');
+        $aluno->Status = request('Status');
+>>>>>>> 5b24123bbaf40a37d60e6ef0896e61d78c8dc69d
 
         //CPF
         $CPFResponsavel = request('CPFResponsavel');
@@ -257,9 +275,13 @@ class AlunoController extends Controller
         $CPFResponsavel = str_replace(".","",$CPFResponsavel);        
         $aluno->CPFResponsavel = $CPFResponsavel;
 
+<<<<<<< HEAD
         $aluno->Status = request('Status');
 
         $aluno->save();
+=======
+        return redirect ('/aluno/list');
+>>>>>>> 5b24123bbaf40a37d60e6ef0896e61d78c8dc69d
 
         return redirect ('/aluno'); 
     }
@@ -267,6 +289,10 @@ class AlunoController extends Controller
     public function destroy($id)
     {
         Aluno::find($id)->delete();
+<<<<<<< HEAD
         return redirect ('/aluno'); 
+=======
+        return redirect('/aluno/list');
+>>>>>>> 5b24123bbaf40a37d60e6ef0896e61d78c8dc69d
     }
 }

@@ -14,6 +14,7 @@
 <script src="js/plugins/pace/pace.min.js"></script>
 
 @section('content')
+<<<<<<< HEAD
 <div class="row wrapper border-bottom white-bg page-heading">
     <div class="col-lg-10">
         <h2>Lista de Alunos</h2>
@@ -72,6 +73,50 @@
                                     </table>
                                 </div>
                             </div>
+=======
+    <div class="wrapper wrapper-content animated fadeInRight">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="text-center m-t-lg">
+                            <h1>
+                                INDEX ALUNOS
+                            </h1>
+                            <small>
+                                TESTE DE VIEW BD
+                            </small>
+                        </div>
+                        <div class="team-member">
+                            <ul>
+                                @foreach ($aluno as $item)
+                                    <li>{{ $item->id}}</li>
+                                    <li>{{ $item->Nome}}</li>
+                                    <li>{{ $item->CPF}}</li>
+                                    <li>{{ $item->RG}}</li>
+                                    <li>{{ $item->EmissorRG}}</li>
+                                    <li>{{ $item->Sexo}}</li>
+                                    <li>{{ $item->DataNascimento}}</li>
+                                    <li>{{ $item->Telefone1}}</li>
+                                    <li>{{ $item->Telefone2}}</li>
+                                    <li>{{ $item->Telefone3}}</li>
+                                    <li>{{ $item->Email}}</li>
+                                    <li>{{ $item->CEP}}</li>
+                                    <li>{{ $item->Endereco}}</li>
+                                    <li>{{ $item->EnderecoNum}}</li>
+                                    <li>{{ $item->EnderecoComp}}</li>
+                                    <li>{{ $item->Bairro}}</li>
+                                    <li>{{ $item->Cidade}}</li>
+                                    <li>{{ $item->Estado}}</li>
+                                    <li>{{ $item->DataIngresso}}</li>
+                                    <li>{{ $item->NomeResponsavel}}</li>
+                                    <li>{{ $item->CPFResponsavel}}</li>
+                                    <li>{{ $item->Status}}</li>
+
+                                @endforeach
+                               
+
+                            </ul>
+                            
+>>>>>>> 5b24123bbaf40a37d60e6ef0896e61d78c8dc69d
                         </div>
                     </div>
 

@@ -36,7 +36,11 @@ class CreateAlunoTable extends Migration
             $table->string('NomeResponsavel');
             $table->string('CPFResponsavel');  
             $table->string('Status');      
+<<<<<<< HEAD
             $table->timestamps();        
+=======
+            $table->timestamps();     
+>>>>>>> 5b24123bbaf40a37d60e6ef0896e61d78c8dc69d
         });
     }
 
