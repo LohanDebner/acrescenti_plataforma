@@ -71,7 +71,7 @@
                         <label class="col-md-1 col-form-label">Data de Nascimento</label>
                         <div class="col-md-2 input-group date" style="padding-left: 15px;">
                             <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
-                            <input type="text" name="DataNascimento" class="form-control" value="01/01/2000">
+                            <input type="text" name="DataNascimento" class="form-control" value="01/01/2000" readonly="readonly">
                         </div>
                      </div>
                 </div>     
@@ -80,13 +80,13 @@
 
                 <div class="form-group row">
                     <label class="col-md-1 col-form-label">Telefone 1</label>
-                    <div class="col-md-2"><input type="text" name="Telefone1" class="form-control" data-mask="(99) 99999-9999" placeholder=""><span class="form-text">(99) 99999-9999</span></div>      
+                    <div class="col-md-2"><input type="text" name="Telefone1" class="form-control telefone" placeholder=""><span class="form-text"></span></div>      
                 
                     <label class="col-md-1 col-form-label">Telefone 2</label>
-                    <div class="col-md-2"><input type="text" name="Telefone2" class="form-control" data-mask="(99) 99999-9999" placeholder=""><span class="form-text">(99) 99999-9999</span></div>      
+                    <div class="col-md-2"><input type="text" name="Telefone2" class="form-control telefone" placeholder=""><span class="form-text"></span></div>      
                 
                     <label class="col-md-1 col-form-label">Telefone 3</label>
-                    <div class="col-md-2"><input type="text" name="Telefone3" class="form-control" data-mask="(99) 99999-9999" placeholder=""><span class="form-text">(99) 99999-9999</span></div>      
+                    <div class="col-md-2"><input type="text" name="Telefone3" class="form-control telefone" placeholder=""><span class="form-text"></span></div>      
 
                 </div>
  
@@ -101,7 +101,7 @@
 
                  <div class="form-group row">
                         <label class="col-md-1 col-form-label">CEP</label>
-                        <div class="col-sm-2"><input type="text"name="CEP" class="form-control" data-mask="99999-999" placeholder=""><span class="form-text">99999-999</span></div>
+                        <div class="col-sm-2"><input type="text" name="CEP" class="form-control" data-mask="99999-999" placeholder=""><span class="form-text"></span></div>
                 </div>                                                                                 
                             
 
@@ -139,7 +139,7 @@
                         <label class="col-md-1 col-form-label">Data de Ingresso</label>
                         <div class="col-md-2 input-group date" style="padding-left: 15px;">
                             <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
-                            <input type="text" name="DataIngresso" class="form-control" value="01/01/2019">
+                            <input type="text" name="DataIngresso" class="form-control" value="01/01/2019" readonly="readonly">
                         </div>
                     </div>
                 </div>      
@@ -148,10 +148,8 @@
     
                 <div class="form-group row">
                     <label class="col-md-1 col-form-label">Possui Responsável?</label>
-                    <input type="checkbox" id="possui_responsavel_switch" class="js-switch"  style="display: none;" onchange="mostrarResponsavel()">       
-                </div>
-            
-                
+                    <div class="col-md-1" style="padding-left: 15px;"><input type="checkbox" id="possui_responsavel_switch" name="PossuiResponsavel" class="js-switch"  style="display: none;" onchange="mostrarResponsavel()"></div>
+                </div>                
 
                 <div id="divResponsavel" style="display:none">
                     
@@ -172,15 +170,18 @@
 
                  <div class="form-group  row">
                     <label class="col-md-1 col-form-label">Status</label>
-                    <div class="col-sm-2"><div class="i-checks"><label> <input type="radio" value="1" name="Status" checked=""><i></i> Ativo</label></div></div>
-                    <div class="col-sm-2"><div class="i-checks"><label> <input type="radio" value="0" name="Status" ><i></i> Inativo</label></div></div>
+                    <div class="col-sm-2"><div class="i-checks"><label> <input type="radio" value="1" name="StatusAluno" checked=""><i></i> Ativo</label></div></div>
+                    <div class="col-sm-2"><div class="i-checks"><label> <input type="radio" value="0" name="StatusAluno" ><i></i> Inativo</label></div></div>
                 
                 </div>
 
                 <div class="hr-line-dashed"></div> 
 
                 <div class="form=group row">
-                    <div class="col-sm-2 col-sm-offset-10">
+                    <div class="col-sm-1 col-sm-offset-10">
+                            <a href="/aluno"><button type="button" class="btn btn-danger block full-width m-b">Cancelar</button>
+                    </div> 
+                    <div class="col-sm-1 ">
                         <button type="submit" class="btn btn-primary block full-width m-b">Salvar</button>
                     </div>  
                 </div>
@@ -199,6 +200,7 @@
                         }
                     }
                 </script>
+                
 
             </form> 
             

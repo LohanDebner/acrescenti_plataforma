@@ -39,6 +39,9 @@
                     <p>
                         Alunos ativos ou inativos.
                     </p>
+                    <div class="col-sm-1 col-sm-offset-11">
+                            <a href="/aluno/create"><button type="button" class="btn btn-primary block full-width m-b">Cadastrar</button></a>
+                    </div> 
                     <div class="input-group">                            
                     </div>
                     <div class="clients-list">
@@ -58,10 +61,10 @@
                                                 <td class="contact-type"><i class="fa fa-envelope"> </i></td>
                                                 <td> <?php echo e($item->Email); ?></td>
 
-                                                <?php if($item->Status =="Ativo"): ?>
-                                                <td class="client-status"><span class="label label-primary"><?php echo e($item->Status); ?></span></td> 
+                                                <?php if($item->StatusAluno =="Ativo"): ?>
+                                                <td class="client-status"><span class="label label-primary"><?php echo e($item->StatusAluno); ?></span></td> 
                                                 <?php else: ?>
-                                                <td class="client-status"><span class="label label-danger"><?php echo e($item->Status); ?></span></td>   
+                                                <td class="client-status"><span class="label label-danger"><?php echo e($item->StatusAluno); ?></span></td>   
                                                 <?php endif; ?>     
                                                 <td><a href="aluno/<?php echo e($item->id); ?>/edit" class="btn btn-white btn-bitbucket"><i class="fa fa-wrench"></i></td>                                                                                                                        
                                             </tr>    

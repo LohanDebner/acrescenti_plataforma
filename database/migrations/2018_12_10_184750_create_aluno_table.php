@@ -33,9 +33,10 @@ class CreateAlunoTable extends Migration
             $table->string('Cidade');
             $table->string('Estado');
             $table->datetime('DataIngresso');
+            $table->integer('PossuiResponsavel');
             $table->string('NomeResponsavel');
             $table->string('CPFResponsavel');  
-            $table->string('Status');      
+            $table->string('StatusAluno');      
             $table->timestamps();        
         });
     }

@@ -40,6 +40,9 @@
                     <p>
                         Alunos ativos ou inativos.
                     </p>
+                    <div class="col-sm-1 col-sm-offset-11">
+                            <a href="/aluno/create"><button type="button" class="btn btn-primary block full-width m-b">Cadastrar</button></a>
+                    </div> 
                     <div class="input-group">                            
                     </div>
                     <div class="clients-list">
@@ -53,16 +56,16 @@
                                         <tbody>
                                         @foreach ($aluno as $item)      
                                             <tr>
-                                                <td><a href="#contact-1" class="client-link">{{ $item->Nome}}</a></td>
+                                                <td><a href="#contact-1" class="client-link">{{$item->Nome}}</a></td>
                                                 <td class="contact-type"><i class="fa fa-phone"> </i></td>
                                                 <td> {{ $item->Telefone1}}</td>
                                                 <td class="contact-type"><i class="fa fa-envelope"> </i></td>
                                                 <td> {{ $item->Email}}</td>
 
-                                                @if ($item->Status =="Ativo")
-                                                <td class="client-status"><span class="label label-primary">{{$item->Status}}</span></td> 
+                                                @if ($item->StatusAluno =="Ativo")
+                                                <td class="client-status"><span class="label label-primary">{{$item->StatusAluno}}</span></td> 
                                                 @else
-                                                <td class="client-status"><span class="label label-danger">{{$item->Status}}</span></td>   
+                                                <td class="client-status"><span class="label label-danger">{{$item->StatusAluno}}</span></td>   
                                                 @endif     
                                                 <td><a href="aluno/{{$item->id}}/edit" class="btn btn-white btn-bitbucket"><i class="fa fa-wrench"></i></td>                                                                                                                        
                                             </tr>    

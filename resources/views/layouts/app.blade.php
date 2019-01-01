@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="{!! asset('css/plugins/datapicker/datepicker3.css') !!}" />
     <link rel="stylesheet" href="{!! asset('css/plugins/switchery/switchery.css') !!}" />
     <link rel="stylesheet" href="{!! asset('css/plugins/iCheck/custom.css') !!}" />
+    <link rel="stylesheet" href="{!! asset('css/plugins/sweetalert/sweetalert.css') !!}">
     
   
 </head>
@@ -48,6 +49,7 @@
 <script src="{!! asset('js/plugins/switchery/switchery.js') !!}">type="text/javascript" </script>
 <script src="{!! asset('js/plugins/datapicker/bootstrap-datepicker.js') !!}">type="text/javascript" </script>
 <script src="{!! asset('js/plugins/iCheck/icheck.min.js') !!}" type="text/javascript"></script>
+<script src="{!! asset('js/plugins/sweetalert/sweetalert.min.js') !!}"></script>
 
 <script>    
         $(document).ready(function(){
@@ -90,7 +92,51 @@
             });
         });
     </script>
-    
+    <script>
+        $(document).ready(function () {
+            $(".telefone").bind('input propertychange',function(){
+                var texto = $(this).val();
+                
+                texto = texto.replace(/[^\d]/g, '');
+                
+                if (texto.length > 0)
+                {
+                texto = "(" + texto;
+                    
+                    if (texto.length > 3)
+                    {
+                        texto = [texto.slice(0, 3), ") ", texto.slice(3)].join('');  
+                    }
+                    if (texto.length > 12)
+                    {      
+                        if (texto.length > 13) 
+                            texto = [texto.slice(0, 10), "-", texto.slice(10)].join('');
+                        else
+                            texto = [texto.slice(0, 9), "-", texto.slice(9)].join('');
+                    }                 
+                        if (texto.length > 15)                
+                            texto = texto.substr(0,15);
+                }
+                $(this).val(texto);     
+                });
+            });
+        </script>
+        <script>
+            $('#botaoDeletar').click(function () {
+                swal({
+                title: "Você tem certeza?",
+                text: "Deseja realmente deletar?",
+                type: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#DD6B55",
+                confirmButtonText: "Sim",
+                closeOnConfirm: false
+            }, function () {
+                swal("Deletado!", "O item foi deletado com sucesso", "success");
+                document.getElementById("formDeletar").submit();
+            });
+        });
+        </script>
 
 
 

@@ -5,7 +5,7 @@
 @section('content')
 <div class="row wrapper border-bottom white-bg page-heading">
         <div class="col-lg-10">
-            <h2>Cadastro de Aluno</h2>
+            <h2>Editar Aluno</h2>
             <ol class="breadcrumb">
                 <li class="breadcrumb-item">
                     <a href="index.html">Início</a>
@@ -26,9 +26,9 @@
             <div class="row">
             <div class="col-lg-12">
             <div class="ibox ">
-        <div class="ibox-title">
-            <h5>Edição dos dados pessoais do aluno. </h5>           
-        </div>
+       <!-- <div class="ibox-title">
+            <h5>Edição dos dados pessoais do aluno </h5>           
+        </div>-->
         <div class="ibox-content">
 
             <form class="m-t" role="form" action="/aluno/{{$aluno->id}}" method="POST">
@@ -62,9 +62,9 @@
     
                      <div class="form-group  row">
                         <label class="col-md-1 col-form-label">Sexo</label>
-                        <div class="col-sm-2"><div class="i-checks"><label> <input type="radio" value="1" name="Sexo" <?php if($aluno->Sexo == "1"){ echo "checked"; }?>> <i></i> Masculino</label></div></div>
-                        <div class="col-sm-2"><div class="i-checks"><label> <input type="radio" value="2" name="Sexo" <?php if($aluno->Sexo == "2"){ echo "checked"; }?>> <i></i> Feminino</label></div></div>
-                        <div class="col-sm-2"><div class="i-checks"><label> <input type="radio" value="0" name="Sexo" <?php if($aluno->Sexo == "0"){ echo "checked"; }?>> <i></i> Indefinido</label></div></div>
+                        <div class="col-sm-2"><div class="i-checks"><label> <input type="radio" value="1" name="Sexo" {{$aluno->SexoMasculino}}> <i></i> Masculino</label></div></div>
+                        <div class="col-sm-2"><div class="i-checks"><label> <input type="radio" value="2" name="Sexo" {{$aluno->SexoFeminino}}> <i></i> Feminino</label></div></div>
+                        <div class="col-sm-2"><div class="i-checks"><label> <input type="radio" value="0" name="Sexo" {{$aluno->SexoIndefinido}}> <i></i> Indefinido</label></div></div>
                     </div>
     
                     <div class="hr-line-dashed"></div>
@@ -74,7 +74,7 @@
                             <label class="col-md-1 col-form-label">Data de Nascimento</label>
                             <div class="col-md-2 input-group date" style="padding-left: 15px;">
                                 <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
-                                <input type="text" name="DataNascimento" class="form-control" value="{{$aluno->DataNascimento}}">
+                                <input type="text" name="DataNascimento" class="form-control" value="{{$aluno->DataNascimento}}" readonly="readonly">
                             </div>
                          </div>
                     </div>     
@@ -83,13 +83,13 @@
     
                     <div class="form-group row">
                         <label class="col-md-1 col-form-label">Telefone 1</label>
-                        <div class="col-md-2"><input type="text" name="Telefone1" class="form-control" data-mask="(99) 99999-9999" placeholder="" value="{{$aluno->Telefone1}}"><span class="form-text">(99) 99999-9999</span></div>      
+                        <div class="col-md-2"><input type="text" name="Telefone1" class="form-control telefone"  placeholder="" value="{{$aluno->Telefone1}}"><span class="form-text"></span></div>      
                     
                         <label class="col-md-1 col-form-label">Telefone 2</label>
-                        <div class="col-md-2"><input type="text" name="Telefone2" class="form-control" data-mask="(99) 99999-9999" placeholder="" value="{{$aluno->Telefone2}}"><span class="form-text">(99) 99999-9999</span></div>      
+                        <div class="col-md-2"><input type="text" name="Telefone2" class="form-control telefone"  placeholder="" value="{{$aluno->Telefone2}}"><span class="form-text"></span></div>      
                     
                         <label class="col-md-1 col-form-label">Telefone 3</label>
-                        <div class="col-md-2"><input type="text" name="Telefone3" class="form-control" data-mask="(99) 99999-9999" placeholder="" value="{{$aluno->Telefone3}}"><span class="form-text">(99) 99999-9999</span></div>      
+                        <div class="col-md-2"><input type="text" name="Telefone3" class="form-control telefone"  placeholder="" value="{{$aluno->Telefone3}}"><span class="form-text"></span></div>      
     
                     </div>
      
@@ -104,7 +104,7 @@
     
                      <div class="form-group row">
                             <label class="col-md-1 col-form-label">CEP</label>
-                            <div class="col-sm-2"><input type="text"name="CEP" class="form-control" data-mask="99999-999" placeholder="" value="{{$aluno->CEP}}"><span class="form-text">99999-999</span></div>
+                            <div class="col-sm-2"><input type="text"name="CEP" class="form-control" data-mask="99999-999" placeholder="" value="{{$aluno->CEP}}"><span class="form-text"></span></div>
                     </div>                                                                                 
                                 
     
@@ -142,7 +142,7 @@
                             <label class="col-md-1 col-form-label">Data de Ingresso</label>
                             <div class="col-md-2 input-group date" style="padding-left: 15px;">
                                 <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
-                                <input type="text" name="DataIngresso" class="form-control" value="{{$aluno->DataIngresso}}">
+                                <input type="text" name="DataIngresso" class="form-control" value="{{$aluno->DataIngresso}}" readonly="readonly">
                             </div>
                         </div>
                     </div>      
@@ -151,12 +151,10 @@
         
                     <div class="form-group row">
                         <label class="col-md-1 col-form-label">Possui Responsável?</label>
-                        <input type="checkbox" id="possui_responsavel_switch" class="js-switch"  style="display: none;" onchange="mostrarResponsavel()">       
+                        <div class="col-md-1" style="padding-left: 15px;"><input type="checkbox" id="possui_responsavel_switch" name="PossuiResponsavel" class="js-switch"  style="display: none;" onchange="mostrarResponsavel()" {{$aluno->PossuiResponsavel}}></div>
                     </div>
-                
-                    
     
-                    <div id="divResponsavel" style="display:none">
+                    <div id="divResponsavel"  {{$aluno->divPossuiResponsavel}}>
                         
                         <div class="form-group  row">
                             <label class="col-sm-1 col-form-label">Nome Responsável</label>
@@ -175,15 +173,18 @@
     
                      <div class="form-group  row">
                         <label class="col-md-1 col-form-label">Status</label>
-                        <div class="col-sm-2"><div class="i-checks"><label> <input type="radio" value="1" name="Status" <?php if($aluno->Status == "1"){ echo "checked"; }?>><i></i> Ativo</label></div></div>
-                        <div class="col-sm-2"><div class="i-checks"><label> <input type="radio" value="0" name="Status" <?php if($aluno->Status == "0"){ echo "checked"; }?>><i></i> Inativo</label></div></div>
+                        <div class="col-sm-2"><div class="i-checks"><label> <input type="radio" value="1" name="StatusAluno" {{$aluno->StatusAlunoAtivo}}><i></i> Ativo</label></div></div>
+                        <div class="col-sm-2"><div class="i-checks"><label> <input type="radio" value="0" name="StatusAluno" {{$aluno->StatusAlunoInativo}}><i></i> Inativo</label></div></div>
                     
                     </div>
     
                     <div class="hr-line-dashed"></div> 
 
                     <div class="form=group row">
-                        <div class="col-sm-2 col-sm-offset-10">
+                        <div class="col-sm-1 col-sm-offset-10">
+                                <a href="/aluno"><button type="button" class="btn btn-danger block full-width m-b">Cancelar</button>
+                        </div> 
+                        <div class="col-sm-1 ">
                             <button type="submit" class="btn btn-primary block full-width m-b">Salvar</button>
                         </div>  
                     </div>
@@ -203,14 +204,14 @@
                     </script>    
 
             </form> 
-            <form method="POST" action="/aluno/{{$aluno->id}}">
-                            
+            <form method="POST" action="/aluno/{{$aluno->id}}" id="formDeletar">
+                            <!-- -->
                 {{csrf_field()}} 
                 {{method_field('DELETE')}}
 
                 <div class="form=group row">
                     <div class="col-sm-2 col-sm-offset-10">
-                        <button type="submit" class="btn btn-outline btn-danger btn-md block full-width m-b">Deletar</button>
+                        <button type="reset" id="botaoDeletar" class="btn btn-outline btn-danger btn-md block full-width m-b">Deletar</button>
                     </div>  
                 </div>
             </form>
