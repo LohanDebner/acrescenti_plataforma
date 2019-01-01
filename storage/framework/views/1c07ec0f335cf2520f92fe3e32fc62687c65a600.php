@@ -32,7 +32,10 @@
             </li>
             <li class="<?php echo e(isActiveRoute('projects/edit')); ?>">
                 <a href="<?php echo e(url('/projects/1/edit')); ?>"><i class="fa fa-th-large"></i> <span class="nav-label">Edit</span> </a>
-        </li>
+            </li>
+            <li class="<?php echo e(isActiveRoute('aluno/create')); ?>">
+            <a href="<?php echo e(url('aluno/create')); ?>"><i class="fa fa-th-large"></i> <span class="nav-label">Cadastro de Aluno</span> </a>
+            </li>
           
             
         </ul>

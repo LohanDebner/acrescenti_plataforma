@@ -7,7 +7,7 @@
             <h2>Cadastro de Aluno</h2>
             <ol class="breadcrumb">
                 <li class="breadcrumb-item">
-                    <a href="index.html">Início</a>
+                    <a href="/aluno">Início</a>
                 </li>
                 <li class="breadcrumb-item">
                     <a>Aluno</a>
@@ -33,49 +33,53 @@
             <form  class="m-t" role="form" action="/aluno" method="POST">
                 <?php echo e(csrf_field()); ?> 
 
-                <div class="form-group  row">
-                    <div class="col-md-1"><label class="col-sm-2 col-form-label">Nome</label></div>
-                    <div class="col-md-4"><input type="text" name="nome" class="form-control"></div>
+                <div class="form-group row">
+                    <label class="col-sm-2 col-form-label" >Nome</label>
+                    <div class="col-sm-10"><input type="text" name="nome" class="form-control"></div>
                 </div>
 
                 <div class="hr-line-dashed"></div>
 
                 <div class="form-group  row">
-                        <div class="col-md-1"> <label class="col-sm-2 col-form-label">CPF</label></div>
-                        <div class="col-md-2"> <input type="text" name="CPF" class="form-control"></div>                        
+                        <label class="col-sm-2 col-form-label">CPF</label>
+                        <div class="col-md-10"> <input type="text" name="CPF" class="form-control"></div>                        
                 </div>
 
                 <div class="hr-line-dashed"></div>  
 
                 <div class="form-group  row">
-                     <div class="col-md-1"><label class="col-sm-2 col-form-label">RG</label></div>
-                     <div class="col-md-2"><input type="text" name="RG" class="form-control"></div>
+                     <label class="col-sm-2 col-form-label">RG</label>
+                     <div class="col-md-3"><input type="text" name="RG" class="form-control"></div>
+
+                     <label class="col-md-2 col-form-label">Órgão emissor RG</label>
+                     <div class="col-md-3"><input type="text" name="EmissorRG" class="form-control"></div>
                 </div>
 
                 <div class="hr-line-dashed"></div> 
 
                 <div class="form-group  row">
-                    <div class="col-md-6"><label class="col-md-2 col-form-label">Órgão emissor RG</label>
-                    <div class="col-md-2"><input type="text" name="Emissor" class="form-control"></div>
-                </div></div>
+                    <label class="col-md-2 col-form-label">Órgão emissor RG</label>
+                    <div class="col-md-10"><input type="text" name="EmissorRG" class="form-control"></div>
+                </div>
 
                  <div class="hr-line-dashed"></div> 
 
                  <div class="form-group  row">
-                    <div class="col-md-6"><label class="col-md-2 col-form-label">Sexo<br></label>
-                    <div class="col-sm-5">
-                            <div class="i-checks"><label class=""> <div class="iradio_square-green checked" style="position: relative;"><input type="radio" value="option1" name="a" style="position: absolute; opacity: 0;"><ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins></div> <i></i> Opção 1 </label></div>
-                            <div class="i-checks"><label class=""> <div class="iradio_square-green checked" style="position: relative;"><input type="radio" value="option1" name="a" style="position: absolute; opacity: 0;"><ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins></div> <i></i> Opção 1 </label></div>
-                            <div class="i-checks"><label class=""> <div class="iradio_square-green checked" style="position: relative;"><input type="radio" value="option1" name="a" style="position: absolute; opacity: 0;"><ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins></div> <i></i> Opção 1 </label></div>
-                    </div>
-                    </div>  
+                    <label class="col-md-2 col-form-label">Sexo</label>
+                    <!--div class="col-md-10"><input type="text" name="Sexo" class="form-control"></div>-->
+                    <div class="col-sm-2"><div class="i-checks"><label> <input type="radio" value="1" name="Sexo"> <i></i> Masculino</label></div></div>
+                    <div class="col-sm-2"><div class="i-checks"><label> <input type="radio" value="2" name="Sexo"> <i></i> Feminino</label></div></div>
+                    <div class="col-sm-2"><div class="i-checks"><label> <input type="radio" value="0" name="Sexo" checked> <i></i> Indefinido</label></div></div>
                 </div>
 
                 <div class="hr-line-dashed"></div>
 
                 <div class="form-group row">                
-                    <div class="form-group" id="data_3"> <label class="col-md-2 col-form-label">Data de Nascimento</label>
-                        <div class="input-group date"><span class="input-group-addon"><i class="fa fa-calendar"></i></span><input type="text" name="Nascimento" class="col-sm-2 col-form-label" value="10/11/2013">
+                    <div class="form-group" id="data_nascimento_picker"> 
+                        <label class="col-md-2 col-form-label">Data de Nascimento</label>
+                        <div class="col-md-3 input-group date" style="padding-left: 15px;">
+                            <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                            <input type="text" name="DataNascimento" class="form-control" value="10/11/2013" disabled>
                         </div>
                      </div>
                 </div>     
@@ -83,32 +87,32 @@
                 <div class="hr-line-dashed"></div>  
 
                 <div class="form-group row">
-                    <div class="col-md-6"><label class="col-md-2 col-form-label">Telefone 1</label>
-                    <div class="col-md-3"><input type="text" name="Telefone1" class="form-control" data-mask="(99)9999-9999" placeholder=""><span class="form-text">(99)9999-9999</span>
+                    <label class="col-md-2 col-form-label">Telefone 1</label>
+                    <div class="col-md-10"><input type="text" name="Telefone1" class="form-control" data-mask="(99) 99999-9999" placeholder=""><span class="form-text">(99) 99999-9999</span>
                     </div>      
-                </div></div>
+                </div>
 
                 <div class="hr-line-dashed"></div>   
                 <div class="form-group row">
-                        <div class="col-md-6"><label class="col-md-2 col-form-label">Telefone 2</label>
-                        <div class="col-md-3"><input type="text" name="Telefone2" class="form-control" data-mask="(99)9999-9999" placeholder=""><span class="form-text">(99)9999-9999</span>
+                        <label class="col-md-2 col-form-label">Telefone 2</label>
+                        <div class="col-md-10"><input type="text" name="Telefone2" class="form-control" data-mask="(99) 99999-9999" placeholder=""><span class="form-text">(99) 99999-9999</span>
                         </div>      
-                    </div></div>
+                    </div>
 
                 <div class="hr-line-dashed"></div>  
 
                 <div class="form-group row">
-                        <div class="col-md-6"><label class="col-md-2 col-form-label">Telefone 3</label>
-                        <div class="col-md-3"><input type="text" name="Telefone3" class="form-control" data-mask="(99)9999-9999" placeholder=""><span class="form-text">(99)9999-9999</span>
+                        <label class="col-md-2 col-form-label">Telefone 3</label>
+                        <div class="col-md-10"><input type="text" name="Telefone3" class="form-control" data-mask="(99) 99999-9999" placeholder=""><span class="form-text">(99) 99999-9999</span>
                         </div>      
-                    </div></div>   
+                    </div>  
  
                 <div class="hr-line-dashed"></div>   
 
                 <div class="form-group  row">
-                        <div class="col-md-6"><label class="col-md-2 col-form-label">Email</label>
-                        <div class="col-md-8"><input type="text"name="Email" class="form-control"></div>
-                    </div></div>
+                        <label class="col-md-2 col-form-label">Email</label>
+                        <div class="col-md-10"><input type="text"name="Email" class="form-control"></div>
+                    </div>
 
                 <div class="hr-line-dashed"></div>   
 
@@ -165,65 +169,64 @@
                 <div class="hr-line-dashed"></div>
 
                 <div class="form-group row">                
-                    <div class="form-group" id="data_3"> <label class="col-md-2 col-form-label">Data de Ingresso</label>
-                        <div class="input-group date"><span class="input-group-addon"><i class="fa fa-calendar"></i></span><input type="text" name="DataIngresso" class="col-sm-2 col-form-label" value="10/11/2013">
+                    <div class="form-group" id="data_ingresso_picker"> 
+                        <label class="col-md-2 col-form-label">Data de Ingresso</label>
+                        <div class="col-md-3 input-group date" style="padding-left: 15px;">
+                            <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                            <input type="text" name="DataIngresso" class="form-control" value="11/11/2019" disabled>
                         </div>
-                     </div>
-                </div>     
+                    </div>
+                </div>      
 
                 <div class="hr-line-dashed"></div>  
     
-                <div class="Form group row">
-                    <div class="col-md-1"><label class="col-md2 col-form-label">Possui Responsável?</label>
-                        <input type="checkbox" id="Pietro" onclick="ativar()" class="js-switch"  style="display: none;" data-switchery="true">
-                    </div>
+                <div class="form-group row">
+                    <label class="col-md-2 col-form-label">Possui Responsável?</label>
+                    <input type="checkbox" id="possui_responsavel_switch" class="js-switch"  style="display: none;" onchange="mostrarResponsavel()">       
                 </div>
-                <div class="ibox-content">               
-                    <input type="checkbox" class="js-switch_2"  />
-                    <input type="checkbox" id="myCheck"  onclick="myFunction()">
-                </div>
-
             
-                <div class="hr-line-dashed"></div> 
+                
 
                 <div id="divResponsavel" style="display:none">
                     
                     <div class="form-group  row">
-                            <div class="col-md-1"><label class="col-sm-2 col-form-label">Nome do Responsável</label></div>
-                            <div class="col-md-4"><input type="text" name="NomeResponsavel" class="form-control"></div>
+                        <label class="col-sm-2 col-form-label">Nome Responsável</label>
+                        <div class="col-md-10"><input type="text" name="NomeResponsavel" class="form-control"></div>
                     </div>
     
                     <div class="hr-line-dashed"></div>
 
                     <div class="form-group  row">
-                            <div class="col-md-1"> <label class="col-sm-2 col-form-label">CPF Responsável</label></div>
-                            <div class="col-md-2"> <input type="text" name="CPFResponsavel" class="form-control"></div>                        
+                        <label class="col-sm-2 col-form-label">CPF Responsável</label>
+                        <div class="col-md-10"> <input type="text" name="CPFResponsavel" class="form-control"></div>                        
                     </div>
                 </div>
                 
                 <div class="hr-line-dashed"></div> 
-                    
 
-                <p id="text" style="display:none">Checkbox is CHECKED!</p>
-                
-                <script>
-                function myFunction() {
-                 var checkBox = document.getElementById("myCheck");
-                 var text = document.getElementById("divResponsavel");
-                 if (checkBox.checked == true){
-                   text.style.display = "block";
-                 } else {
-                    text.style.display = "none";
-                 }
-                }
-                </script>
                 <div class="form=group row">
-                    <div class="col-sm-4 col-sm-offset-2">
-                    <button class="btn btn-white btn-sm" type="submit">Cancel</button>
-                    <button type="submit" class="btn btn-primary block full-width m-b">Salvar</button>
+                    <div class="col-sm-3 col-sm-offset-9">
+                        <button type="submit" class="btn btn-primary block full-width m-b">Salvar</button>
                     </div>  
                 </div>
+
+
+                <script>
+                    function mostrarResponsavel() {
+
+                        var switch_possui_responsavel = document.getElementById("possui_responsavel_switch");
+                        var text = document.getElementById("divResponsavel");
+
+                        if (switch_possui_responsavel.checked == true){
+                            text.style.display = "block";
+                        } else {
+                            text.style.display = "none";
+                        }
+                    }
+                </script>
+
             </form> 
+            
         </div>
         </div>
 </div>
