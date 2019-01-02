@@ -16,14 +16,21 @@ class AlunoController extends Controller
       ////Adicionando máscara p/ Telefone1
       foreach ($aluno as $item) 
       {
-        if ($item->Telefone1 !== ""){ 
-            $item->Telefone1 = "(".$item->Telefone1[0].$item->Telefone1[1].") "
-                            .$item->Telefone1[2].$item->Telefone1[3].$item->Telefone1[4].$item->Telefone1[5].$item->Telefone1[6]."-"
-                            .$item->Telefone1[7].$item->Telefone1[8].$item->Telefone1[9].$item->Telefone1[10];
-        
-        }
+        if ($aluno->Telefone1 !== ""){   
+            $lenght = strlen($aluno->Telefone1);    
+            
+            if($lenght > 10){
+            $aluno->Telefone1 = "(".$aluno->Telefone1[0].$aluno->Telefone1[1].") "
+                                .$aluno->Telefone1[2].$aluno->Telefone1[3].$aluno->Telefone1[4].$aluno->Telefone1[5].$aluno->Telefone1[6]."-"
+                                .$aluno->Telefone1[7].$aluno->Telefone1[8].$aluno->Telefone1[9].$aluno->Telefone1[10];
+            }else{
+            $aluno->Telefone1 = "(".$aluno->Telefone1[0].$aluno->Telefone1[1].") "
+                                .$aluno->Telefone1[2].$aluno->Telefone1[3].$aluno->Telefone1[4].$aluno->Telefone1[5]."-"
+                                .$aluno->Telefone1[6].$aluno->Telefone1[7].$aluno->Telefone1[8].$aluno->Telefone1[9];
+            }
+        }           
 
-        switch ($item->StatusAluno) {
+        switch ($item->StatusAluno){
             case 0:
                 $item->StatusAluno = "Inativo";
                 break;
