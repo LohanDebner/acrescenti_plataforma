@@ -25,9 +25,8 @@ DELETE /projects/1 (destroy)
 Route::get('/', 'HomeController@index')->name("main");
 Route::get('/minor', 'HomeController@minor')->name("minor");
 
-
-Route::resource('/projects','ProjectsController');
 Route::resource('/aluno','AlunoController'); 
+Route::resource('/teste','TesteController'); 
 
 /*
 Route::get('/projects','ProjectsController@index');

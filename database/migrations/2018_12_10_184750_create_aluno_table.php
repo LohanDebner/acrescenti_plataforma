@@ -38,6 +38,7 @@ class CreateAlunoTable extends Migration
             $table->string('CPFResponsavel');  
             $table->string('StatusAluno');      
             $table->timestamps();        
+            
         });
     }
 

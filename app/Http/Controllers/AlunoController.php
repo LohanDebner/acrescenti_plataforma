@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Aluno;
+use App\Teste;
 
 class AlunoController extends Controller
 {
@@ -131,6 +132,14 @@ class AlunoController extends Controller
 
 
         $aluno->save();
+
+
+        // TESTE DE FOREIGN KEY
+        $teste = new Teste();
+        $teste->descricao = "descrição qualquer";
+        $teste->aluno_id =  $aluno->id;
+        $teste->save();
+
 
         return redirect ('/aluno');      
 

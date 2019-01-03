@@ -134,9 +134,9 @@
                 }, function () {
                 document.getElementById("botaoCancelar").disabled = true;
                 document.getElementById("botaoSalvar").disabled = true;
-                setTimeout(function(){
+                /*setTimeout(function(){
                     document.getElementById("formPrincipal").submit();
-                }, 5000); 
+                }, 5000); */
                 });
             });
 
