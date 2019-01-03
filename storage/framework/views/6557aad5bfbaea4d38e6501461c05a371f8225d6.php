@@ -30,7 +30,7 @@
         </div>-->
         <div class="ibox-content">
 
-            <form class="m-t" role="form" action="/aluno/<?php echo e($aluno->id); ?>" method="POST">
+            <form class="m-t" role="form" action="/aluno/<?php echo e($aluno->id); ?>" method="POST" id="formPrincipal">
                             
                 <?php echo e(csrf_field()); ?> 
                 <?php echo e(method_field('PATCH')); ?>

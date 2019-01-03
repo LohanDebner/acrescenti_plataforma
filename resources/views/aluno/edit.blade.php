@@ -31,7 +31,7 @@
         </div>-->
         <div class="ibox-content">
 
-            <form class="m-t" role="form" action="/aluno/{{$aluno->id}}" method="POST">
+            <form class="m-t" role="form" action="/aluno/{{$aluno->id}}" method="POST" id="formPrincipal">
                             
                 {{csrf_field()}} 
                 {{method_field('PATCH')}}

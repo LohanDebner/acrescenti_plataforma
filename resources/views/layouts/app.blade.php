@@ -131,15 +131,13 @@
                     title: "Item Salvo!",
                     text: "Você está sendo redirecionado para a página pricipal",
                     type: "success"
-                });
+                }, function () {
                 document.getElementById("botaoCancelar").disabled = true;
                 document.getElementById("botaoSalvar").disabled = true;
-                /*function () {
-
                 setTimeout(function(){
                     document.getElementById("formPrincipal").submit();
                 }, 5000); 
-                });*/
+                });
             });
 
             //Botão Deletar
