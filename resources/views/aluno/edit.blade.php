@@ -31,28 +31,28 @@
         </div>-->
         <div class="ibox-content">
 
-            <form class="m-t" role="form" action="/aluno/{{$aluno->id}}" method="POST">
+            <form class="m-t" role="form" action="/aluno/{{$aluno->id}}" method="POST" id="formPrincipal">
                             
                 {{csrf_field()}} 
                 {{method_field('PATCH')}}
                 
                 <div class="form-group row">
                         <label class="col-sm-1 col-form-label" >Nome</label>
-                        <div class="col-sm-11"><input type="text" name="Nome" class="form-control" value="{{$aluno->Nome}}"></div>
+                        <div class="col-sm-11"><input type="text" name="Nome" class="form-control" value="{{$aluno->Nome}}" required></div>
                     </div>
     
                     <div class="hr-line-dashed"></div>
     
                     <div class="form-group  row">
                             <label class="col-sm-1 col-form-label">CPF</label>
-                            <div class="col-md-2"> <input type="text" name="CPF" data-mask="999.999.999-99" class="form-control" value="{{$aluno->CPF}}"></div>                        
+                            <div class="col-md-2"> <input type="text" name="CPF" data-mask="999.999.999-99" class="form-control" value="{{$aluno->CPF}}" required></div>                        
                     </div>
     
                     <div class="hr-line-dashed"></div>  
     
                     <div class="form-group  row">
                          <label class="col-sm-1 col-form-label">RG</label>
-                         <div class="col-md-3"><input type="text" name="RG" class="form-control" value="{{$aluno->RG}}"></div>
+                         <div class="col-md-3"><input type="text" name="RG" class="form-control" value="{{$aluno->RG}}" required></div>
     
                          <label class="col-md-1 col-form-label">Emissor RG</label>
                          <div class="col-md-3"><input type="text" name="EmissorRG" class="form-control" value="{{$aluno->EmissorRG}}"></div>
@@ -182,10 +182,10 @@
 
                     <div class="form=group row">
                         <div class="col-sm-1 col-sm-offset-10">
-                                <a href="/aluno"><button type="button" class="btn btn-danger block full-width m-b">Cancelar</button>
+                                <a href="/aluno"><button type="button" id="botaoCancelar" class="btn btn-danger block full-width m-b">Cancelar</button>
                         </div> 
                         <div class="col-sm-1 ">
-                            <button type="submit" class="btn btn-primary block full-width m-b">Salvar</button>
+                            <button type="submit" id="botaoSalvar" class="btn btn-primary block full-width m-b">Salvar</button>
                         </div>  
                     </div>
 

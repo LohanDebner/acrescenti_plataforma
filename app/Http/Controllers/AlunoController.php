@@ -16,14 +16,30 @@ class AlunoController extends Controller
       ////Adicionando máscara p/ Telefone1
       foreach ($aluno as $item) 
       {
+<<<<<<< HEAD
         if ($item->Telefone1 !== ""){ 
             $item->Telefone1 = "(".$item->Telefone1[0].$item->Telefone1[1].")"
                             .$item->Telefone1[2].$item->Telefone1[3].$item->Telefone1[4].$item->Telefone1[5].$item->Telefone1[6]."-"
                             .$item->Telefone1[7].$item->Telefone1[8].$item->Telefone1[9].$item->Telefone1[10];
         
         }
+=======
+        if ($item->Telefone1 !== ""){   
+            $lenght = strlen($item->Telefone1);    
+            
+            if($lenght > 10){
+            $item->Telefone1 = "(".$item->Telefone1[0].$item->Telefone1[1].") "
+                                .$item->Telefone1[2].$item->Telefone1[3].$item->Telefone1[4].$item->Telefone1[5].$item->Telefone1[6]."-"
+                                .$item->Telefone1[7].$item->Telefone1[8].$item->Telefone1[9].$item->Telefone1[10];
+            }else{
+            $item->Telefone1 = "(".$item->Telefone1[0].$item->Telefone1[1].") "
+                                .$item->Telefone1[2].$item->Telefone1[3].$item->Telefone1[4].$item->Telefone1[5]."-"
+                                .$item->Telefone1[6].$item->Telefone1[7].$item->Telefone1[8].$item->Telefone1[9];
+            }
+        }           
+>>>>>>> 6aa03c2316924b8d86819b1599c770a10a97955a
 
-        switch ($item->StatusAluno) {
+        switch ($item->StatusAluno){
             case 0:
                 $item->StatusAluno = "Inativo";
                 break;

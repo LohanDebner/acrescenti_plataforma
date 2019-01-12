@@ -93,6 +93,7 @@
         });
     </script>
     <script>
+        //Máscara do Telefone
         $(document).ready(function () {
             $(".telefone").bind('input propertychange',function(){
                 var texto = $(this).val();
@@ -122,6 +123,24 @@
             });
         </script>
         <script>
+            //Funções de submit dos forms 
+
+            //Botão Salvar
+            $('#botaoSalvar').click(function(){    
+                swal({
+                    title: "Item Salvo!",
+                    text: "Você está sendo redirecionado para a página pricipal",
+                    type: "success"
+                }, function () {
+                document.getElementById("botaoCancelar").disabled = true;
+                document.getElementById("botaoSalvar").disabled = true;
+                setTimeout(function(){
+                    document.getElementById("formPrincipal").submit();
+                }, 5000); 
+                });
+            });
+
+            //Botão Deletar
             $('#botaoDeletar').click(function () {
                 swal({
                 title: "Você tem certeza?",
@@ -133,7 +152,12 @@
                 closeOnConfirm: false
             }, function () {
                 swal("Deletado!", "O item foi deletado com sucesso", "success");
-                document.getElementById("formDeletar").submit();
+                document.getElementById("botaoCancelar").disabled = true;
+                document.getElementById("botaoSalvar").disabled = true;
+                document.getElementById("botaoDeletar").disabled = true;
+                setTimeout(function(){
+                    document.getElementById("formDeletar").submit();
+                }, 2000); 
             });
         });
         </script>
