@@ -1,4 +1,4 @@
-<?php $__env->startSection('title', 'Create'); ?>
+<?php $__env->startSection('title', 'Cadastro'); ?>
 <link href="css/plugins/datapicker/datepicker3.css" rel="stylesheet">
 <link href="css/plugins/daterangepicker/daterangepicker-bs3.css" rel="stylesheet">
 <?php $__env->startSection('content'); ?>
@@ -174,7 +174,7 @@
                     <div class="col-sm-2"><div class="i-checks"><label> <input type="radio" value="0" name="StatusAluno" ><i></i> Inativo</label></div></div>
                 
                 </div>
-
+            
                 <div class="hr-line-dashed"></div> 
 
                 <div class="form=group row">

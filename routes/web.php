@@ -28,6 +28,10 @@ Route::get('/minor', 'HomeController@minor')->name("minor");
 
 Route::resource('/projects','ProjectsController');
 Route::resource('/aluno','AlunoController'); 
+Route::resource('/conteudoAnexos','ConteudoAnexosController'); 
+Route::resource('/conteudo','ConteudoController'); 
+Route::resource('/exercicioDicas','ExercicioDicasController'); 
+Route::resource('/respostas','RespostasController'); 
 
 /*
 Route::get('/projects','ProjectsController@index');

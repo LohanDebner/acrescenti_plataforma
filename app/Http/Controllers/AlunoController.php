@@ -17,7 +17,7 @@ class AlunoController extends Controller
       foreach ($aluno as $item) 
       {
         if ($item->Telefone1 !== ""){ 
-            $item->Telefone1 = "(".$item->Telefone1[0].$item->Telefone1[1].") "
+            $item->Telefone1 = "(".$item->Telefone1[0].$item->Telefone1[1].")"
                             .$item->Telefone1[2].$item->Telefone1[3].$item->Telefone1[4].$item->Telefone1[5].$item->Telefone1[6]."-"
                             .$item->Telefone1[7].$item->Telefone1[8].$item->Telefone1[9].$item->Telefone1[10];
         
