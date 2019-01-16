@@ -1,11 +1,10 @@
-@extends('layouts.app')
-@section('title', 'Create')
+<?php $__env->startSection('title', 'Create'); ?>
 <link href="css/plugins/datapicker/datepicker3.css" rel="stylesheet">
 <link href="css/plugins/daterangepicker/daterangepicker-bs3.css" rel="stylesheet">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
 
-@section('content')
+<?php $__env->startSection('content'); ?>
 <div class="row wrapper border-bottom white-bg page-heading">
         <div class="col-lg-10">
             <h2>Upload de Conteúdo</h2>
@@ -35,7 +34,7 @@
         <div class="ibox-content">
 
             <form  class="m-t" role="form" action="/conteudo" method="POST">
-                {{csrf_field()}} 
+                <?php echo e(csrf_field()); ?> 
 
                 <div class="form-group row">
                     <label class="col-sm-1 col-form-label">Tipo de Conteudo</label>
@@ -281,4 +280,5 @@
 </div>
 </div>
 
-@endsection
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('layouts.app', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

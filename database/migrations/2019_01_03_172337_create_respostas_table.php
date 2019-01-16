@@ -15,8 +15,10 @@ class CreateRespostasTable extends Migration
     {
         Schema::create('Respostas',function(Blueprint $table){
             $table->increments('ID');
-            $table->string('Valor');       
+            $table->string('Valor'); 
+            $table->integer('RespostaCorreta');      
             $table->integer('ConteudoID')->unsigned();	
+            $table->foreign('ConteudoID')->references('ID')->on('Conteudos');
             $table->timestamps();
         });
     }

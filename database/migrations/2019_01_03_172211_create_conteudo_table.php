@@ -13,14 +13,13 @@ class CreateConteudoTable extends Migration
      */
     public function up()
     {
-        Schema::create('Conteudo',function(Blueprint $table){
-            $table->increments('ID');
+        Schema::create('Conteudos',function(Blueprint $table){
+            $table->increments('ID')->unique();
             $table->string('Titulo');
             $table->string('Origem');
             $table->string('Descricao');
             $table->integer('TipoConteudo');
-            $table->integer('TipoExercicio');
-            $table->integer('RespostaID')->unsigned();	
+            $table->integer('TipoExercicio');	
             $table->string('VideoPath');
             $table->timestamps();
         });

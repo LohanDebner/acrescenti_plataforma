@@ -17,6 +17,7 @@ class CreateConteudoAnexosTable extends Migration
             $table->increments('ID');
             $table->string('Path');       
             $table->integer('ConteudoID')->unsigned();	
+            $table->foreign('ConteudoID')->references('ID')->on('Conteudos');
             $table->timestamps();
         });
     }
