@@ -33,6 +33,6 @@ class CreateConteudoTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('Conteudo');
+        Schema::dropIfExists('Conteudos');
     }
 }

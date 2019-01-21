@@ -26,6 +26,9 @@
             <a href="{{ url('aluno') }}"><i class="fa fa-th-large"></i> <span class="nav-label">Alunos</span> </a>
             </li>
           
+            <li class="{{ isActiveRoute('conteudo') }}">
+                <a href="{{ url('conteudo') }}"><i class="fa fa-th-large"></i> <span class="nav-label">Conteudo</span> </a>
+                </li>
             
         </ul>
 

@@ -26,6 +26,9 @@
             <a href="<?php echo e(url('aluno')); ?>"><i class="fa fa-th-large"></i> <span class="nav-label">Alunos</span> </a>
             </li>
           
+            <li class="<?php echo e(isActiveRoute('conteudo')); ?>">
+                <a href="<?php echo e(url('conteudo')); ?>"><i class="fa fa-th-large"></i> <span class="nav-label">Conteudo</span> </a>
+                </li>
             
         </ul>
 

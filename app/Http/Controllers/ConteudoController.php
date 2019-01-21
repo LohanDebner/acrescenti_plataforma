@@ -14,14 +14,29 @@ class ConteudoController extends Controller
     {
         $conteudo = Conteudo::all();
 
+        foreach ($conteudo as $item){
 
-        return view('conteudo.index');
+            switch ($item->TipoConteudo){
+                case 1:
+                    $item->TipoConteudo = "Exercicio";
+                    break;
+                case 2:
+                    $item->TipoConteudo = "Video Aula";
+                    break;
+                case 3:
+                    $item->TipoConteudo = "Vidio Exercicio";
+                    break;
+            }
+        } 
+
+
+        return view('conteudo.index',['conteudo'=>$conteudo]);
     }
 
 
     public function create()
     {
-        //
+        return view('conteudo.create');
     }
 
 
@@ -97,13 +112,17 @@ class ConteudoController extends Controller
 
     public function show($id)
     {
-        //
+        $conteudo = Conteudo::all();
+        return view('conteudo.index',['conteudo'=>$conteudo]);
     }
 
 
     public function edit($id)
     {
-        //
+        $conteudo = Conteudo::findOrFail($id);
+        
+
+        return view ('conteudo.edit', compact('conteudo'));
     }
 
 
@@ -117,4 +136,6 @@ class ConteudoController extends Controller
     {
         //
     }
+
+
 }
