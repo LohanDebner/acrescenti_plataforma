@@ -13,11 +13,11 @@ class CreateExercicioDicasTable extends Migration
      */
     public function up()
     {
-        Schema::create('Exercicio_Dicas',function(Blueprint $table){
-            $table->increments('ID');
-            $table->string('Descricao');       
-            $table->integer('ConteudoID')->unsigned();	
-            $table->foreign('ConteudoID')->references('ID')->on('Conteudos');
+        Schema::create('exercicio_dicas',function(Blueprint $table){
+            $table->increments('id');
+            $table->string('descricao');       
+            $table->integer('conteudo_id')->unsigned();	
+            $table->foreign('conteudo_id')->references('id')->on('Conteudos')->onDelete('cascade');
             $table->timestamps();
         });
     }
@@ -30,6 +30,6 @@ class CreateExercicioDicasTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('ExercicioDicas');
+        Schema::dropIfExists('exercicio_dicas');
     }
 }

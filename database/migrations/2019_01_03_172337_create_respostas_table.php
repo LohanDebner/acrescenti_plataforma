@@ -15,10 +15,10 @@ class CreateRespostasTable extends Migration
     {
         Schema::create('Respostas',function(Blueprint $table){
             $table->increments('id');
-            $table->string('Valor'); 
-            $table->integer('RespostaCorreta');      
+            $table->string('valor'); 
+            $table->integer('resposta_correta');      
             $table->integer('conteudo_id')->unsigned();	
-            $table->foreign('conteudo_id')->references('id')->on('Conteudos');
+            $table->foreign('conteudo_id')->references('id')->on('Conteudos')->onDelete('cascade');
             $table->timestamps();
         });
     }

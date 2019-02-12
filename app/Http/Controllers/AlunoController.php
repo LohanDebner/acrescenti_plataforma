@@ -13,29 +13,29 @@ class AlunoController extends Controller
     {
       $aluno = Aluno::all();
       
-      ////Adicionando máscara p/ Telefone1
+      ////Adicionando máscara p/ telefone_1
       foreach ($aluno as $item) 
       {
-        if ($item->Telefone1 !== ""){   
-            $lenght = strlen($item->Telefone1);    
+        if ($item->telefone_1 !== ""){   
+            $lenght = strlen($item->telefone_1);    
             
             if($lenght > 10){
-            $item->Telefone1 = "(".$item->Telefone1[0].$item->Telefone1[1].") "
-                                .$item->Telefone1[2].$item->Telefone1[3].$item->Telefone1[4].$item->Telefone1[5].$item->Telefone1[6]."-"
-                                .$item->Telefone1[7].$item->Telefone1[8].$item->Telefone1[9].$item->Telefone1[10];
+            $item->telefone_1 = "(".$item->telefone_1[0].$item->telefone_1[1].") "
+                                .$item->telefone_1[2].$item->telefone_1[3].$item->telefone_1[4].$item->telefone_1[5].$item->telefone_1[6]."-"
+                                .$item->telefone_1[7].$item->telefone_1[8].$item->telefone_1[9].$item->telefone_1[10];
             }else{
-            $item->Telefone1 = "(".$item->Telefone1[0].$item->Telefone1[1].") "
-                                .$item->Telefone1[2].$item->Telefone1[3].$item->Telefone1[4].$item->Telefone1[5]."-"
-                                .$item->Telefone1[6].$item->Telefone1[7].$item->Telefone1[8].$item->Telefone1[9];
+            $item->telefone_1 = "(".$item->telefone_1[0].$item->telefone_1[1].") "
+                                .$item->telefone_1[2].$item->telefone_1[3].$item->telefone_1[4].$item->telefone_1[5]."-"
+                                .$item->telefone_1[6].$item->telefone_1[7].$item->telefone_1[8].$item->telefone_1[9];
             }
         }           
 
-        switch ($item->StatusAluno){
+        switch ($item->status_aluno){
             case 0:
-                $item->StatusAluno = "Inativo";
+                $item->status_aluno = "Inativo";
                 break;
             case 1:
-                $item->StatusAluno = "Ativo";
+                $item->status_aluno = "Ativo";
                 break;
         }
       }
@@ -53,81 +53,81 @@ class AlunoController extends Controller
     public function store()
     {
         $aluno = new Aluno();
-        $aluno->nome = request('Nome');
-        //CPF
-        $CPF = request('CPF');
-        $CPF = str_replace("-","",$CPF);
-        $CPF = str_replace(".","",$CPF);        
-        $aluno->CPF = $CPF;
+        $aluno->nome = request('nome');
+        //cpf
+        $cpf = request('cpf');
+        $cpf = str_replace("-","",$cpf);
+        $cpf = str_replace(".","",$cpf);        
+        $aluno->cpf = $cpf;
 
-        $aluno->RG = request('RG');
-        $aluno->EmissorRG = request('EmissorRG');
-        $aluno->Sexo = request('Sexo');
+        $aluno->rg = request('rg');
+        $aluno->emissor_rg = request('emissor_rg');
+        $aluno->sexo = request('sexo');
 
         //Data Nascimento
-        $dataNascimento= request('DataNascimento');
-        $dataNascimento= explode("/",$dataNascimento);       
-        $aluno->DataNascimento = $dataNascimento[2]."-".$dataNascimento[1]."-".$dataNascimento[0];
+        $data_nascimento= request('data_nascimento');
+        $data_nascimento= explode("/",$data_nascimento);       
+        $aluno->data_nascimento = $data_nascimento[2]."-".$data_nascimento[1]."-".$data_nascimento[0];
 
-        //Telefone1
-        $Telefone1 = request('Telefone1');
-        $Telefone1 = str_replace("(","",$Telefone1);
-        $Telefone1 = str_replace(")","",$Telefone1);
-        $Telefone1 = str_replace("-","",$Telefone1); 
-        $Telefone1 = str_replace(" ","",$Telefone1);        
-        $aluno->Telefone1 = $Telefone1;
-        //Telefone2
-        $Telefone2 = request('Telefone2');
-        $Telefone2 = str_replace("(","",$Telefone2);
-        $Telefone2 = str_replace(")","",$Telefone2);
-        $Telefone2 = str_replace("-","",$Telefone2); 
-        $Telefone2 = str_replace(" ","",$Telefone2);        
-        $aluno->Telefone2 = $Telefone2;
-        //Telefone3
-        $Telefone3 = request('Telefone3');
-        $Telefone3 = str_replace("(","",$Telefone3);
-        $Telefone3 = str_replace(")","",$Telefone3);
-        $Telefone3 = str_replace("-","",$Telefone3); 
-        $Telefone3 = str_replace(" ","",$Telefone3);        
-        $aluno->Telefone3 = $Telefone3;
+        //telefone_1
+        $telefone_1 = request('telefone_1');
+        $telefone_1 = str_replace("(","",$telefone_1);
+        $telefone_1 = str_replace(")","",$telefone_1);
+        $telefone_1 = str_replace("-","",$telefone_1); 
+        $telefone_1 = str_replace(" ","",$telefone_1);        
+        $aluno->telefone_1 = $telefone_1;
+        //telefone_2
+        $telefone_2 = request('telefone_2');
+        $telefone_2 = str_replace("(","",$telefone_2);
+        $telefone_2 = str_replace(")","",$telefone_2);
+        $telefone_2 = str_replace("-","",$telefone_2); 
+        $telefone_2 = str_replace(" ","",$telefone_2);        
+        $aluno->telefone_2 = $telefone_2;
+        //telefone_3
+        $telefone_3 = request('telefone_3');
+        $telefone_3 = str_replace("(","",$telefone_3);
+        $telefone_3 = str_replace(")","",$telefone_3);
+        $telefone_3 = str_replace("-","",$telefone_3); 
+        $telefone_3 = str_replace(" ","",$telefone_3);        
+        $aluno->telefone_3 = $telefone_3;
 
-        $aluno->Email = request('Email');
+        $aluno->email = request('email');
 
-        //CEP
-        $CEP = request('CEP');
-        $CEP = str_replace("-","",$CEP);     
-        $aluno->CEP = $CEP;
+        //cep
+        $cep = request('cep');
+        $cep = str_replace("-","",$cep);     
+        $aluno->cep = $cep;
 
-        $aluno->Endereco = request('Endereco');
-        $aluno->EnderecoNum = request('EnderecoNum');
-        $aluno->EnderecoComp = request('EnderecoComp');
-        $aluno->Bairro = request('Bairro');
-        $aluno->Cidade = request('Cidade');
-        $aluno->Estado = request('Estado');
+        $aluno->endereco = request('endereco');
+        $aluno->endereco_num = request('endereco_num');
+        $aluno->endereco_comp = request('endereco_comp');
+        $aluno->bairro = request('bairro');
+        $aluno->cidade = request('cidade');
+        $aluno->estado = request('estado');
 
         //Data Ingresso
-        $dataIngresso= request('DataIngresso');
-        $dataIngresso= explode("/",$dataIngresso);
-        $aluno->DataIngresso = $dataIngresso[2]."-".$dataIngresso[1]."-".$dataIngresso[0];
+        $data_ingresso= request('data_ingresso');
+        $data_ingresso= explode("/",$data_ingresso);
+        $aluno->data_ingresso = $data_ingresso[2]."-".$data_ingresso[1]."-".$data_ingresso[0];
 
         //Responsável
-        if (request('PossuiResponsavel') =="on"){
-            $aluno->PossuiResponsavel = "1";
-            $aluno->NomeResponsavel = request('NomeResponsavel');
+        if (request('possui_responsavel') =="on"){
+            $aluno->possui_responsavel = "1";
+            $aluno->nome_responsavel = request('nome_responsavel');
 
-            //CPF
-            $CPFResponsavel = request('CPFResponsavel');
-            $CPFResponsavel = str_replace("-","",$CPFResponsavel);
-            $CPFResponsavel = str_replace(".","",$CPFResponsavel);        
-            $aluno->CPFResponsavel = $CPFResponsavel;
+            //cpf
+            $cpf_responsavel = request('cpf_responsavel');
+            $cpf_responsavel = str_replace("-","",$cpf_responsavel);
+            $cpf_responsavel = str_replace(".","",$cpf_responsavel);        
+            $aluno->cpf_responsavel = $cpf_responsavel;
 
         } else{
-            $aluno->PossuiResponsavel = "0";
-            $aluno->NomeResponsavel = "";
-            $aluno->CPFResponsavel = "";
+            $aluno->possui_responsavel = "0";
+            $aluno->nome_responsavel = "";
+            $aluno->cpf_responsavel = "";
         }
 
-        $aluno->StatusAluno = request('StatusAluno');
+        $aluno->status_aluno = request('status_aluno');
 
 
         $aluno->save();
@@ -148,122 +148,122 @@ class AlunoController extends Controller
     {
         $aluno = Aluno::findOrFail($id);
 
-        //Adicionando máscara p/ CPF
-        $aluno->CPF =    $aluno->CPF[0].$aluno->CPF[1].$aluno->CPF[2]."."
-                        .$aluno->CPF[3].$aluno->CPF[4].$aluno->CPF[5]."."
-                        .$aluno->CPF[6].$aluno->CPF[7].$aluno->CPF[8]."-"
-                        .$aluno->CPF[9].$aluno->CPF[10];
+        //Adicionando máscara p/ cpf
+        $aluno->cpf =    $aluno->cpf[0].$aluno->cpf[1].$aluno->cpf[2]."."
+                        .$aluno->cpf[3].$aluno->cpf[4].$aluno->cpf[5]."."
+                        .$aluno->cpf[6].$aluno->cpf[7].$aluno->cpf[8]."-"
+                        .$aluno->cpf[9].$aluno->cpf[10];
         
-        //Seleciona o Sexo do Aluno com variáveis extras 
-        switch ($aluno->Sexo){
+        //Seleciona o sexo do Aluno com variáveis extras 
+        switch ($aluno->sexo){
             case 0:
-                $aluno->SexoIndefinido = "checked";
-                $aluno->SexoMasculino = "";
-                $aluno->SexoFeminino = "";
+                $aluno->sexo_indefinido = "checked";
+                $aluno->sexo_masculino = "";
+                $aluno->sexo_feminino = "";
                 break;
             case 1:
-                $aluno->SexoIndefinido = "";
-                $aluno->SexoMasculino = "checked";
-                $aluno->SexoFeminino = "";
+                $aluno->sexo_indefinido = "";
+                $aluno->sexo_masculino = "checked";
+                $aluno->sexo_feminino = "";
                 break;
             case 2:
-                $aluno->SexoIndefinido = "";
-                $aluno->SexoMasculino = "";
-                $aluno->SexoFeminino = "checked";
+                $aluno->sexo_indefinido = "";
+                $aluno->sexo_masculino = "";
+                $aluno->sexo_feminino = "checked";
                 break;
         }
 
-        //Adicionando máscara p/ Telefone1
-        if ($aluno->Telefone1 !== ""){   
-            $lenght = strlen($aluno->Telefone1);    
+        //Adicionando máscara p/ telefone_1
+        if ($aluno->telefone_1 !== ""){   
+            $lenght = strlen($aluno->telefone_1);    
             
             if($lenght > 10){
-            $aluno->Telefone1 = "(".$aluno->Telefone1[0].$aluno->Telefone1[1].") "
-                                .$aluno->Telefone1[2].$aluno->Telefone1[3].$aluno->Telefone1[4].$aluno->Telefone1[5].$aluno->Telefone1[6]."-"
-                                .$aluno->Telefone1[7].$aluno->Telefone1[8].$aluno->Telefone1[9].$aluno->Telefone1[10];
+            $aluno->telefone_1 = "(".$aluno->telefone_1[0].$aluno->telefone_1[1].") "
+                                .$aluno->telefone_1[2].$aluno->telefone_1[3].$aluno->telefone_1[4].$aluno->telefone_1[5].$aluno->telefone_1[6]."-"
+                                .$aluno->telefone_1[7].$aluno->telefone_1[8].$aluno->telefone_1[9].$aluno->telefone_1[10];
             }else{
-            $aluno->Telefone1 = "(".$aluno->Telefone1[0].$aluno->Telefone1[1].") "
-                                .$aluno->Telefone1[2].$aluno->Telefone1[3].$aluno->Telefone1[4].$aluno->Telefone1[5]."-"
-                                .$aluno->Telefone1[6].$aluno->Telefone1[7].$aluno->Telefone1[8].$aluno->Telefone1[9];
+            $aluno->telefone_1 = "(".$aluno->telefone_1[0].$aluno->telefone_1[1].") "
+                                .$aluno->telefone_1[2].$aluno->telefone_1[3].$aluno->telefone_1[4].$aluno->telefone_1[5]."-"
+                                .$aluno->telefone_1[6].$aluno->telefone_1[7].$aluno->telefone_1[8].$aluno->telefone_1[9];
             }
             
         }
         
-         //Adicionando máscara p/ Telefone2
-         if ($aluno->Telefone2 !== ""){   
-            $lenght = strlen($aluno->Telefone2);    
+         //Adicionando máscara p/ telefone_2
+         if ($aluno->telefone_2 !== ""){   
+            $lenght = strlen($aluno->telefone_2);    
             
             if($lenght > 10){
-            $aluno->Telefone2 = "(".$aluno->Telefone2[0].$aluno->Telefone2[1].") "
-                                .$aluno->Telefone2[2].$aluno->Telefone2[3].$aluno->Telefone2[4].$aluno->Telefone2[5].$aluno->Telefone2[6]."-"
-                                .$aluno->Telefone2[7].$aluno->Telefone2[8].$aluno->Telefone2[9].$aluno->Telefone2[10];
+            $aluno->telefone_2 = "(".$aluno->telefone_2[0].$aluno->telefone_2[1].") "
+                                .$aluno->telefone_2[2].$aluno->telefone_2[3].$aluno->telefone_2[4].$aluno->telefone_2[5].$aluno->telefone_2[6]."-"
+                                .$aluno->telefone_2[7].$aluno->telefone_2[8].$aluno->telefone_2[9].$aluno->telefone_2[10];
             }else{
-            $aluno->Telefone2 = "(".$aluno->Telefone2[0].$aluno->Telefone2[1].") "
-                                .$aluno->Telefone2[2].$aluno->Telefone2[3].$aluno->Telefone2[4].$aluno->Telefone2[5]."-"
-                                .$aluno->Telefone2[6].$aluno->Telefone2[7].$aluno->Telefone2[8].$aluno->Telefone2[9];
+            $aluno->telefone_2 = "(".$aluno->telefone_2[0].$aluno->telefone_2[1].") "
+                                .$aluno->telefone_2[2].$aluno->telefone_2[3].$aluno->telefone_2[4].$aluno->telefone_2[5]."-"
+                                .$aluno->telefone_2[6].$aluno->telefone_2[7].$aluno->telefone_2[8].$aluno->telefone_2[9];
             }
             
         }
 
-        //Adicionando máscara p/ Telefone3
-        if ($aluno->Telefone3 !== ""){   
-            $lenght = strlen($aluno->Telefone3);    
+        //Adicionando máscara p/ telefone_3
+        if ($aluno->telefone_3 !== ""){   
+            $lenght = strlen($aluno->telefone_3);    
             
             if($lenght > 10){
-            $aluno->Telefone3 = "(".$aluno->Telefone3[0].$aluno->Telefone3[1].") "
-                                .$aluno->Telefone3[2].$aluno->Telefone3[3].$aluno->Telefone3[4].$aluno->Telefone3[5].$aluno->Telefone3[6]."-"
-                                .$aluno->Telefone3[7].$aluno->Telefone3[8].$aluno->Telefone3[9].$aluno->Telefone3[10];
+            $aluno->telefone_3 = "(".$aluno->telefone_3[0].$aluno->telefone_3[1].") "
+                                .$aluno->telefone_3[2].$aluno->telefone_3[3].$aluno->telefone_3[4].$aluno->telefone_3[5].$aluno->telefone_3[6]."-"
+                                .$aluno->telefone_3[7].$aluno->telefone_3[8].$aluno->telefone_3[9].$aluno->telefone_3[10];
             }else{
-            $aluno->Telefone3 = "(".$aluno->Telefone3[0].$aluno->Telefone3[1].") "
-                                .$aluno->Telefone3[2].$aluno->Telefone3[3].$aluno->Telefone3[4].$aluno->Telefone3[5]."-"
-                                .$aluno->Telefone3[6].$aluno->Telefone3[7].$aluno->Telefone3[8].$aluno->Telefone3[9];
+            $aluno->telefone_3 = "(".$aluno->telefone_3[0].$aluno->telefone_3[1].") "
+                                .$aluno->telefone_3[2].$aluno->telefone_3[3].$aluno->telefone_3[4].$aluno->telefone_3[5]."-"
+                                .$aluno->telefone_3[6].$aluno->telefone_3[7].$aluno->telefone_3[8].$aluno->telefone_3[9];
             }
             
         }
 
-        //Adicionando máscara p/ CEP
-        if ($aluno->CEP!== ""){
-            $aluno->CEP = $aluno->CEP[0].$aluno->CEP[1].$aluno->CEP[2].$aluno->CEP[3].$aluno->CEP[4]
-                          ."-".$aluno->CEP[5].$aluno->CEP[6].$aluno->CEP[7];
+        //Adicionando máscara p/ cep
+        if ($aluno->cep!== ""){
+            $aluno->cep = $aluno->cep[0].$aluno->cep[1].$aluno->cep[2].$aluno->cep[3].$aluno->cep[4]
+                          ."-".$aluno->cep[5].$aluno->cep[6].$aluno->cep[7];
         }
 
         //Modificando formato Data Nascimento
-        $aluno->DataNascimento = explode(" ",$aluno->DataNascimento); 
-        $aluno->DataNascimento = explode("-",$aluno->DataNascimento[0]); 
-        $aluno->DataNascimento = $aluno->DataNascimento[2]."/".$aluno->DataNascimento[1]."/".$aluno->DataNascimento[0]; 
+        $aluno->data_nascimento = explode(" ",$aluno->data_nascimento); 
+        $aluno->data_nascimento = explode("-",$aluno->data_nascimento[0]); 
+        $aluno->data_nascimento = $aluno->data_nascimento[2]."/".$aluno->data_nascimento[1]."/".$aluno->data_nascimento[0]; 
 
         //Modificando formato Data Ingresso
-        $aluno->DataIngresso = explode(" ",$aluno->DataIngresso); 
-        $aluno->DataIngresso = explode("-",$aluno->DataIngresso[0]); 
-        $aluno->DataIngresso = $aluno->DataIngresso[2]."/".$aluno->DataIngresso[1]."/".$aluno->DataIngresso[0]; 
+        $aluno->data_ingresso = explode(" ",$aluno->data_ingresso); 
+        $aluno->data_ingresso = explode("-",$aluno->data_ingresso[0]); 
+        $aluno->data_ingresso = $aluno->data_ingresso[2]."/".$aluno->data_ingresso[1]."/".$aluno->data_ingresso[0]; 
 
         //Responsável
-        if ($aluno->PossuiResponsavel =="1"){   
+        if ($aluno->possui_responsavel =="1"){   
 
-            $aluno->PossuiResponsavel = "checked";
-            //Adicionando máscara p/ CPFResponsavel
-            if ($aluno->CPFResponsavel!== ""){
-                $aluno->CPFResponsavel =    $aluno->CPFResponsavel[0].$aluno->CPFResponsavel[1].$aluno->CPFResponsavel[2]."."
-                                            .$aluno->CPFResponsavel[3].$aluno->CPFResponsavel[4].$aluno->CPFResponsavel[5]."."
-                                            .$aluno->CPFResponsavel[6].$aluno->CPFResponsavel[7].$aluno->CPFResponsavel[8]."-"
-                                            .$aluno->CPFResponsavel[9].$aluno->CPFResponsavel[10];
+            $aluno->possui_responsavel = "checked";
+            //Adicionando máscara p/ cpf_responsavel
+            if ($aluno->cpf_responsavel!== ""){
+                $aluno->cpf_responsavel =    $aluno->cpf_responsavel[0].$aluno->cpf_responsavel[1].$aluno->cpf_responsavel[2]."."
+                                            .$aluno->cpf_responsavel[3].$aluno->cpf_responsavel[4].$aluno->cpf_responsavel[5]."."
+                                            .$aluno->cpf_responsavel[6].$aluno->cpf_responsavel[7].$aluno->cpf_responsavel[8]."-"
+                                            .$aluno->cpf_responsavel[9].$aluno->cpf_responsavel[10];
             }
             //Variável extra criada para exibir divResponsável caso o aluno tenha
-            $aluno->divPossuiResponsavel = 'style=display:block';
+            $aluno->divpossui_responsavel = 'style=display:block';
 
         } else{
-            $aluno->PossuiResponsavel = "";
+            $aluno->possui_responsavel = "";
             //Variável extra criada para não exibir divResponsável caso o aluno não tenha
-            $aluno->divPossuiResponsavel = 'style=display:none';
+            $aluno->divpossui_responsavel = 'style=display:none';
         }
 
         //Seleciona o Status do Aluno com variáveis extras    
-        if($aluno->StatusAluno=="1"){
-            $aluno->StatusAlunoAtivo = "checked"; 
-            $aluno->StatusAlunoInativo = "";
+        if($aluno->status_aluno=="1"){
+            $aluno->status_aluno_ativo = "checked"; 
+            $aluno->status_aluno_inativo = "";
         } else{
-            $aluno->StatusAlunoAtivo = ""; 
-            $aluno->StatusAlunoInativo = "checked";
+            $aluno->status_aluno_ativo = ""; 
+            $aluno->status_aluno_inativo = "checked";
         }  
         
 
@@ -275,81 +275,81 @@ class AlunoController extends Controller
     {
         $aluno = Aluno::find($id);
 
-        $aluno->nome = request('Nome');
-        //CPF
-        $CPF = request('CPF');
-        $CPF = str_replace("-","",$CPF);
-        $CPF = str_replace(".","",$CPF);        
-        $aluno->CPF = $CPF;
+        $aluno->nome = request('nome');
+        //cpf
+        $cpf = request('cpf');
+        $cpf = str_replace("-","",$cpf);
+        $cpf = str_replace(".","",$cpf);        
+        $aluno->cpf = $cpf;
 
-        $aluno->RG = request('RG');
-        $aluno->EmissorRG = request('EmissorRG');
-        $aluno->Sexo = request('Sexo');
+        $aluno->rg = request('rg');
+        $aluno->emissor_rg = request('emissor_rg');
+        $aluno->sexo = request('sexo');
 
         //Data Nascimento
-        $dataNascimento= request('DataNascimento');
-        $dataNascimento= explode("/",$dataNascimento);       
-        $aluno->DataNascimento = $dataNascimento[2]."-".$dataNascimento[1]."-".$dataNascimento[0];
+        $data_nascimento= request('data_nascimento');
+        $data_nascimento= explode("/",$data_nascimento);       
+        $aluno->data_nascimento = $data_nascimento[2]."-".$data_nascimento[1]."-".$data_nascimento[0];
 
-        //Telefone1
-        $Telefone1 = request('Telefone1');
-        $Telefone1 = str_replace("(","",$Telefone1);
-        $Telefone1 = str_replace(")","",$Telefone1);
-        $Telefone1 = str_replace("-","",$Telefone1); 
-        $Telefone1 = str_replace(" ","",$Telefone1);        
-        $aluno->Telefone1 = $Telefone1;
-        //Telefone2
-        $Telefone2 = request('Telefone2');
-        $Telefone2 = str_replace("(","",$Telefone2);
-        $Telefone2 = str_replace(")","",$Telefone2);
-        $Telefone2 = str_replace("-","",$Telefone2); 
-        $Telefone2 = str_replace(" ","",$Telefone2);        
-        $aluno->Telefone2 = $Telefone2;
-        //Telefone3
-        $Telefone3 = request('Telefone3');
-        $Telefone3 = str_replace("(","",$Telefone3);
-        $Telefone3 = str_replace(")","",$Telefone3);
-        $Telefone3 = str_replace("-","",$Telefone3); 
-        $Telefone3 = str_replace(" ","",$Telefone3);        
-        $aluno->Telefone3 = $Telefone3;
+        //telefone_1
+        $telefone_1 = request('telefone_1');
+        $telefone_1 = str_replace("(","",$telefone_1);
+        $telefone_1 = str_replace(")","",$telefone_1);
+        $telefone_1 = str_replace("-","",$telefone_1); 
+        $telefone_1 = str_replace(" ","",$telefone_1);        
+        $aluno->telefone_1 = $telefone_1;
+        //telefone_2
+        $telefone_2 = request('telefone_2');
+        $telefone_2 = str_replace("(","",$telefone_2);
+        $telefone_2 = str_replace(")","",$telefone_2);
+        $telefone_2 = str_replace("-","",$telefone_2); 
+        $telefone_2 = str_replace(" ","",$telefone_2);        
+        $aluno->telefone_2 = $telefone_2;
+        //telefone_3
+        $telefone_3 = request('telefone_3');
+        $telefone_3 = str_replace("(","",$telefone_3);
+        $telefone_3 = str_replace(")","",$telefone_3);
+        $telefone_3 = str_replace("-","",$telefone_3); 
+        $telefone_3 = str_replace(" ","",$telefone_3);        
+        $aluno->telefone_3 = $telefone_3;
 
-        $aluno->Email = request('Email');
+        $aluno->Email = request('email');
 
-        //CEP
-        $CEP = request('CEP');
-        $CEP = str_replace("-","",$CEP);     
-        $aluno->CEP = $CEP;
+        //cep
+        $cep = request('cep');
+        $cep = str_replace("-","",$cep);     
+        $aluno->cep = $cep;
 
-        $aluno->Endereco = request('Endereco');
-        $aluno->EnderecoNum = request('EnderecoNum');
-        $aluno->EnderecoComp = request('EnderecoComp');
-        $aluno->Bairro = request('Bairro');
-        $aluno->Cidade = request('Cidade');
-        $aluno->Estado = request('Estado');
+        $aluno->endereco = request('endereco');
+        $aluno->endereco_num = request('endereco_num');
+        $aluno->endereco_comp = request('endereco_comp');
+        $aluno->bairro = request('bairro');
+        $aluno->cidade = request('cidade');
+        $aluno->estado = request('estado');
 
         //Data Ingresso
-        $dataIngresso= request('DataIngresso');
-        $dataIngresso= explode("/",$dataIngresso);
-        $aluno->DataIngresso = $dataIngresso[2]."-".$dataIngresso[1]."-".$dataIngresso[0];
+        $data_ingresso= request('data_ingresso');
+        $data_ingresso= explode("/",$data_ingresso);
+        $aluno->data_ingresso = $data_ingresso[2]."-".$data_ingresso[1]."-".$data_ingresso[0];
 
         //Responsável
-        if (request('PossuiResponsavel') =="on"){
-            $aluno->PossuiResponsavel = "1";
-            $aluno->NomeResponsavel = request('NomeResponsavel');
+        if (request('possui_responsavel') =="on"){
+            $aluno->possui_responsavel = "1";
+            $aluno->nome_responsavel = request('nome_responsavel');
 
-            //CPF
-            $CPFResponsavel = request('CPFResponsavel');
-            $CPFResponsavel = str_replace("-","",$CPFResponsavel);
-            $CPFResponsavel = str_replace(".","",$CPFResponsavel);        
-            $aluno->CPFResponsavel = $CPFResponsavel;
+            //cpf
+            $cpf_responsavel = request('cpf_responsavel');
+            $cpf_responsavel = str_replace("-","",$cpf_responsavel);
+            $cpf_responsavel = str_replace(".","",$cpf_responsavel);        
+            $aluno->cpf_responsavel = $cpf_responsavel;
 
         } else{
-            $aluno->PossuiResponsavel = "0";
-            $aluno->NomeResponsavel = "";
-            $aluno->CPFResponsavel = "";
+            $aluno->possui_responsavel = "0";
+            $aluno->nome_responsavel = "";
+            $aluno->cpf_responsavel = "";
         }
 
-        $aluno->StatusAluno = request('StatusAluno');
+        $aluno->StatusAluno = request('status_aluno');
 
         $aluno->save();
 

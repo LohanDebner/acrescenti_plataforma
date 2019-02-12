@@ -55,14 +55,14 @@
                                         <tbody>
                                         <?php $__currentLoopData = $conteudo; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>      
                                             <tr>
-                                                <td><a href="#contact-1" class="client-link"><?php echo e($item->Titulo); ?></a></td>                                                
-                                                <td> <?php echo e($item->Descricao); ?></td>
-                                                <?php if($item->TipoConteudo =="Exercicio"): ?>
-                                                <td class="client-status"><span class="label label-primary"><?php echo e($item->TipoConteudo); ?></span></td> 
-                                                <?php elseif($item->TipoConteudo =="Video Aula"): ?>
-                                                <td class="client-status"><span class="label label-success"><?php echo e($item->TipoConteudo); ?></span></td>
+                                                <td><a href="#contact-1" class="client-link"><?php echo e($item->titulo); ?></a></td>                                                
+                                                <td> <?php echo e($item->descricao); ?></td>
+                                                <?php if($item->tipo_conteudo =="Exercicio"): ?>
+                                                <td class="client-status"><span class="label label-primary"><?php echo e($item->tipo_conteudo); ?></span></td> 
+                                                <?php elseif($item->tipo_conteudo =="Video Aula"): ?>
+                                                <td class="client-status"><span class="label label-success"><?php echo e($item->tipo_conteudo); ?></span></td>
                                                 <?php else: ?>   
-                                                <td class="client-status"><span class="label label-info"><?php echo e($item->TipoConteudo); ?></span></td>
+                                                <td class="client-status"><span class="label label-info"><?php echo e($item->tipo_conteudo); ?></span></td>
                                                 <?php endif; ?>     
                                                 <td><a href="conteudo/<?php echo e($item->id); ?>/edit" class="btn btn-white btn-bitbucket"><i class="fa fa-wrench"></i></td>                                                                                                                        
                                             </tr>    

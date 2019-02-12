@@ -13,11 +13,11 @@ class CreateConteudoAnexosTable extends Migration
      */
     public function up()
     {
-        Schema::create('ConteudoAnexos',function(Blueprint $table){
-            $table->increments('ID');
-            $table->string('Path');       
-            $table->integer('ConteudoID')->unsigned();	
-            $table->foreign('ConteudoID')->references('ID')->on('Conteudos');
+        Schema::create('conteudos_anexo',function(Blueprint $table){
+            $table->increments('id');
+            $table->string('path');       
+            $table->integer('conteudo_id')->unsigned();	
+            $table->foreign('conteudo_id')->references('id')->on('Conteudos');
             $table->timestamps();
         });
     }
@@ -30,6 +30,6 @@ class CreateConteudoAnexosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('ConteudoAnexos');
+        Schema::dropIfExists('conteudos_anexo');
     }
 }

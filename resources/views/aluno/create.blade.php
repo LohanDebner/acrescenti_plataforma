@@ -36,33 +36,33 @@
 
                 <div class="form-group row">
                     <label class="col-sm-1 col-form-label" >Nome</label>
-                    <div class="col-sm-11"><input type="text" name="Nome" class="form-control" required></div>
+                    <div class="col-sm-11"><input type="text" name="nome" class="form-control" required></div>
                 </div>
 
                 <div class="hr-line-dashed"></div>
 
                 <div class="form-group  row">
                         <label class="col-sm-1 col-form-label">CPF</label>
-                        <div class="col-md-2"> <input type="text" name="CPF" data-mask="999.999.999-99" class="form-control" required></div>                        
+                        <div class="col-md-2"> <input type="text" name="cpf" data-mask="999.999.999-99" class="form-control" required></div>                        
                 </div>
 
                 <div class="hr-line-dashed"></div>  
 
                 <div class="form-group  row">
                      <label class="col-sm-1 col-form-label">RG</label>
-                     <div class="col-md-3"><input type="text" name="RG" class="form-control" required></div>
+                     <div class="col-md-3"><input type="text" name="rg" class="form-control" required></div>
 
                      <label class="col-md-1 col-form-label">Emissor RG</label>
-                     <div class="col-md-3"><input type="text" name="EmissorRG" class="form-control"></div>
+                     <div class="col-md-3"><input type="text" name="emissor_rg" class="form-control"></div>
                 </div>
 
                  <div class="hr-line-dashed"></div> 
 
                  <div class="form-group  row">
                     <label class="col-md-1 col-form-label">Sexo</label>
-                    <div class="col-sm-2"><div class="i-checks"><label> <input type="radio" value="1" name="Sexo"> <i></i> Masculino</label></div></div>
-                    <div class="col-sm-2"><div class="i-checks"><label> <input type="radio" value="2" name="Sexo"> <i></i> Feminino</label></div></div>
-                    <div class="col-sm-2"><div class="i-checks"><label> <input type="radio" value="0" name="Sexo" checked> <i></i> Indefinido</label></div></div>
+                    <div class="col-sm-2"><div class="i-checks"><label> <input type="radio" value="1" name="sexo"> <i></i> Masculino</label></div></div>
+                    <div class="col-sm-2"><div class="i-checks"><label> <input type="radio" value="2" name="sexo"> <i></i> Feminino</label></div></div>
+                    <div class="col-sm-2"><div class="i-checks"><label> <input type="radio" value="0" name="sexo" checked> <i></i> Indefinido</label></div></div>
                 </div>
 
                 <div class="hr-line-dashed"></div>
@@ -72,7 +72,7 @@
                         <label class="col-md-1 col-form-label">Data de Nascimento</label>
                         <div class="col-md-2 input-group date" style="padding-left: 15px;">
                             <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
-                            <input type="text" name="DataNascimento" class="form-control" value="01/01/2000" readonly="readonly">
+                            <input type="text" name="data_nascimento" class="form-control" value="01/01/2000" readonly="readonly">
                         </div>
                      </div>
                 </div>     
@@ -81,13 +81,13 @@
 
                 <div class="form-group row">
                     <label class="col-md-1 col-form-label">Telefone 1</label>
-                    <div class="col-md-2"><input type="text" name="Telefone1" class="form-control telefone" placeholder=""><span class="form-text"></span></div>      
+                    <div class="col-md-2"><input type="text" name="telefone_1" class="form-control telefone" placeholder=""><span class="form-text"></span></div>      
                 
                     <label class="col-md-1 col-form-label">Telefone 2</label>
-                    <div class="col-md-2"><input type="text" name="Telefone2" class="form-control telefone" placeholder=""><span class="form-text"></span></div>      
+                    <div class="col-md-2"><input type="text" name="telefone_2" class="form-control telefone" placeholder=""><span class="form-text"></span></div>      
                 
                     <label class="col-md-1 col-form-label">Telefone 3</label>
-                    <div class="col-md-2"><input type="text" name="Telefone3" class="form-control telefone" placeholder=""><span class="form-text"></span></div>      
+                    <div class="col-md-2"><input type="text" name="telefone_3" class="form-control telefone" placeholder=""><span class="form-text"></span></div>      
 
                 </div>
  
@@ -95,14 +95,14 @@
 
                 <div class="form-group  row">
                         <label class="col-md-1 col-form-label">Email</label>
-                        <div class="col-md-11"><input type="text"name="Email" class="form-control"></div>
+                        <div class="col-md-11"><input type="text"name="email" class="form-control"></div>
                     </div>
 
                 <div class="hr-line-dashed"></div>   
 
                  <div class="form-group row">
                         <label class="col-md-1 col-form-label">CEP</label>
-                        <div class="col-sm-2"><input type="text" name="CEP" class="form-control" data-mask="99999-999" placeholder=""><span class="form-text"></span></div>
+                        <div class="col-sm-2"><input type="text" name="cep" class="form-control" data-mask="99999-999" placeholder=""><span class="form-text"></span></div>
                 </div>                                                                                 
                             
 
@@ -110,13 +110,13 @@
 
                 <div class="form-group  row">
                     <label class="col-sm-1 col-form-label">Endereço</label>
-                    <div class="col-md-4"><input type="text" name="Endereco" class="form-control"></div>
+                    <div class="col-md-4"><input type="text" name="endereco" class="form-control"></div>
 
                     <label class="col-sm-1 col-form-label">Número</label>
-                    <div class="col-md-1"><input type="text" name="EnderecoNum" class="form-control"></div>
+                    <div class="col-md-1"><input type="text" name="endereco_num" class="form-control"></div>
 
                     <label class="col-sm-1 col-form-label">Complemento</label>
-                    <div class="col-md-4"><input type="text" name="EnderecoComp" class="form-control"></div>
+                    <div class="col-md-4"><input type="text" name="endereco_comp" class="form-control"></div>
 
                 </div>
 
@@ -124,13 +124,13 @@
 
                 <div class="form-group  row">
                     <label class="col-sm-1 col-form-label">Bairro</label>
-                    <div class="col-md-4"><input type="text" name="Bairro" class="form-control"></div>
+                    <div class="col-md-4"><input type="text" name="bairro" class="form-control"></div>
 
                     <label class="col-sm-1 col-form-label">Cidade</label>
-                    <div class="col-md-4"><input type="text" name="Cidade" class="form-control"></div>
+                    <div class="col-md-4"><input type="text" name="cidade" class="form-control"></div>
 
                     <label class="col-sm-1 col-form-label">Estado</label>
-                    <div class="col-md-1"><input type="text" name="Estado" class="form-control"></div>
+                    <div class="col-md-1"><input type="text" name="estado" class="form-control"></div>
                 </div>
 
                 <div class="hr-line-dashed"></div>
@@ -140,7 +140,7 @@
                         <label class="col-md-1 col-form-label">Data de Ingresso</label>
                         <div class="col-md-2 input-group date" style="padding-left: 15px;">
                             <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
-                            <input type="text" name="DataIngresso" class="form-control" value="01/01/2019" readonly="readonly">
+                            <input type="text" name="data_ingresso" class="form-control" value="01/01/2019" readonly="readonly">
                         </div>
                     </div>
                 </div>      
@@ -149,21 +149,21 @@
     
                 <div class="form-group row">
                     <label class="col-md-1 col-form-label">Possui Responsável?</label>
-                    <div class="col-md-1" style="padding-left: 15px;"><input type="checkbox" id="possui_responsavel_switch" name="PossuiResponsavel" class="js-switch"  style="display: none;" onchange="mostrarResponsavel()"></div>
+                    <div class="col-md-1" style="padding-left: 15px;"><input type="checkbox" id="possui_responsavel_switch" name="possui_responsavel" class="js-switch"  style="display: none;" onchange="mostrarResponsavel()"></div>
                 </div>                
 
                 <div id="divResponsavel" style="display:none">
                     
                     <div class="form-group  row">
                         <label class="col-sm-1 col-form-label">Nome Responsável</label>
-                        <div class="col-md-11"><input type="text" name="NomeResponsavel" class="form-control"></div>
+                        <div class="col-md-11"><input type="text" name="nome_responsavel" class="form-control"></div>
                     </div>
     
                     <div class="hr-line-dashed"></div>
 
                     <div class="form-group  row">
                         <label class="col-sm-1 col-form-label">CPF Responsável</label>
-                        <div class="col-md-2"> <input type="text" name="CPFResponsavel" data-mask="999.999.999-99" class="form-control"></div>                        
+                        <div class="col-md-2"> <input type="text" name="cpf_responsavel" data-mask="999.999.999-99" class="form-control"></div>                        
                     </div>
                 </div>
                 
@@ -171,8 +171,8 @@
 
                  <div class="form-group  row">
                     <label class="col-md-1 col-form-label">Status</label>
-                    <div class="col-sm-2"><div class="i-checks"><label> <input type="radio" value="1" name="StatusAluno" checked=""><i></i> Ativo</label></div></div>
-                    <div class="col-sm-2"><div class="i-checks"><label> <input type="radio" value="0" name="StatusAluno" ><i></i> Inativo</label></div></div>
+                    <div class="col-sm-2"><div class="i-checks"><label> <input type="radio" value="1" name="status_aluno" checked=""><i></i> Ativo</label></div></div>
+                    <div class="col-sm-2"><div class="i-checks"><label> <input type="radio" value="0" name="status_aluno" ><i></i> Inativo</label></div></div>
                 
                 </div>
             

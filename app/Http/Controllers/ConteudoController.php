@@ -5,8 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Conteudo;
-use App\Respostas;
-use App\ExercicioDicas;
+use App\Resposta;
+use App\ExercicioDica;
 
 class ConteudoController extends Controller
 {
@@ -16,15 +16,15 @@ class ConteudoController extends Controller
 
         foreach ($conteudo as $item){
 
-            switch ($item->TipoConteudo){
+            switch ($item->tipo_conteudo){
                 case 1:
-                    $item->TipoConteudo = "Exercicio";
+                    $item->tipo_conteudo = "Exercicio";
                     break;
                 case 2:
-                    $item->TipoConteudo = "Video Aula";
+                    $item->tipo_conteudo = "Video Aula";
                     break;
                 case 3:
-                    $item->TipoConteudo = "Vidio Exercicio";
+                    $item->tipo_conteudo = "Vidio Exercicio";
                     break;
             }
         } 
@@ -43,51 +43,51 @@ class ConteudoController extends Controller
     public function store(Request $request)
     {
         $conteudo = new Conteudo();
-        $conteudo->Titulo = request('Titulo');
-        $conteudo->Origem = request('Origem');
-        $conteudo->Descricao = request('Descricao');
-        $conteudo->TipoConteudo = request('TipoConteudo');
-        $conteudo->TipoExercicio = request('TipoExercicio');
+        $conteudo->titulo = request('titulo');
+        $conteudo->origem = request('origem');
+        $conteudo->descricao = request('descricao');
+        $conteudo->tipo_conteudo = request('tipo_conteudo');
+        $conteudo->tipo_exercicio = request('tipo_exercicio');
         
-        if($conteudo->TipoConteudo!='1'){
-            $conteudo->VideoPath = request('VideoPath');
+        if($conteudo->tipo_conteudo!='1'){
+            $conteudo->video_path = request('video_path');
         } else{
-            $conteudo->VideoPath = "";
+            $conteudo->video_path = "";
         }
 
         $conteudo->save();
 
 
-        if($conteudo->TipoConteudo == "1"){
+        if($conteudo->tipo_conteudo == "1"){
 
-            if($conteudo->TipoExercicio == "1"){
+            if($conteudo->tipo_exercicio == "1"){
                 // Salvando Respostas Alternativas
                 $QuantidadeRespostas = request('QuantidadeRespostas');
                 for($i=1;$i<=$QuantidadeRespostas;$i++)
                 {
                     if(request('Resposta'.$i) !== NULL)
                     {
-                        $resposta = new Respostas();
-                        $resposta->valor = request('Resposta'.$i);
+                        $respostas = new Resposta();
+                        $respostas->valor = request('Resposta'.$i);
                         
                         //Se a resposta retornou algum valor, quer dizer que ela foi checada
                         if(request('checkResposta'.$i) == '1'){
-                            $resposta->RespostaCorreta = "1";
+                            $respostas->resposta_correta = "1";
                         } else{
-                            $resposta->RespostaCorreta = "0";
+                            $respostas->resposta_correta = "0";
                         }
                         
-                        $resposta->conteudo_id = $conteudo->id;                        
-                        $resposta->save();
+                        $respostas->conteudo_id = $conteudo->id;                        
+                        $respostas->save();
                     }
                 }
             } else{
                 //Salvando Resposta Dissertativa
-                $resposta = new Respostas();
-                $resposta->valor = request('RespostaDissertativa');
-                $resposta->RespostaCorreta = "1";
-                $resposta->conteudo_id = $conteudo->id;                        
-                $resposta->save();
+                $respostas = new Resposta();
+                $respostas->valor = request('RespostaDissertativa');
+                $respostas->resposta_correta = "1";
+                $respostas->conteudo_id = $conteudo->id;                        
+                $respostas->save();
             }               
         }
 
@@ -97,8 +97,8 @@ class ConteudoController extends Controller
         {
             if(request('Dica'.$i) !== NULL)
             {
-                $dica = new ExercicioDicas();
-                $dica->Descricao = request('Dica'.$i);
+                $dica = new ExercicioDica();
+                $dica->descricao = request('Dica'.$i);
                 $dica->conteudo_id = $conteudo->id;                        
                 $dica->save();
             }
@@ -112,8 +112,13 @@ class ConteudoController extends Controller
 
     public function show($id)
     {
-        $conteudo = Conteudo::all();
-        return view('conteudo.index',['conteudo'=>$conteudo]);
+        $conteudo = Conteudo::findOrFail($id);       
+
+        $dica = Conteudo::findOrFail($id)->dicas;
+        
+
+        return view('conteudo.show',compact('conteudo','dica'));
+
     }
 
 
@@ -122,7 +127,7 @@ class ConteudoController extends Controller
         $conteudo = Conteudo::findOrFail($id);
 
     
-        switch ($conteudo->TipoConteudo){
+        switch ($conteudo->tipo_conteudo){
             case 1:
                 $conteudo->ConteudoExercicio = "selected";
                 $conteudo->ConteudoVideoAula = "";
@@ -140,7 +145,7 @@ class ConteudoController extends Controller
                 break;
         }
         
-        switch ($conteudo->TipoExercicio){
+        switch ($conteudo->tipo_exercicio){
             case 1:
                 $conteudo->TipoExercicioAlternativa = "selected";
                 $conteudo->TipoExercicioDissertativa = "";
@@ -151,22 +156,86 @@ class ConteudoController extends Controller
                 break; 
         }   
 
-        $respostas = Conteudo::findOrFail($id)->respostas;
+        $resposta = Conteudo::findOrFail($id)->respostas;
+        $dica = Conteudo::findOrFail($id)->dicas;
         
-        return view ('conteudo.edit', compact('conteudo','respostas'));
+       return view ('conteudo.edit', compact('conteudo','resposta','dica'));
 
     }
 
 
     public function update(Request $request, $id)
     {
-        //
+        $conteudo = Conteudo::find($id);
+
+        $conteudo->tipo_conteudo = request('tipo_conteudo');
+        $conteudo->titulo = request('titulo');
+        $conteudo->origem = request ('origem');
+        $conteudo->descricao = request ('descricao');
+        $conteudo->tipo_exercicio = request('tipo_exercicio');
+
+        $conteudo->respostas()->delete();
+        $conteudo->dicas()->delete();
+
+        if($conteudo->tipo_conteudo == "1"){
+
+            if($conteudo->tipo_exercicio == "1"){
+                // Salvando Respostas Alternativas
+                $QuantidadeRespostas = request('QuantidadeRespostas');
+                for($i=1;$i<=$QuantidadeRespostas;$i++)
+                {
+                    if(request('Resposta'.$i) !== NULL)
+                    {
+                        $respostas = new Resposta();
+                        $respostas->valor = request('Resposta'.$i);
+                        
+                        //Se a resposta retornou algum valor, quer dizer que ela foi checada
+                        if(request('checkResposta'.$i) == '1'){
+                            $respostas->resposta_correta = "1";
+                        } else{
+                            $respostas->resposta_correta = "0";
+                        }
+                        
+                        $respostas->conteudo_id = $conteudo->id;                        
+                        $respostas->save();
+                    }
+                }
+            } else{
+                //Salvando Resposta Dissertativa
+                $respostas = new Resposta();
+                $respostas->valor = request('RespostaDissertativa');
+                $respostas->resposta_correta = "1";
+                $respostas->conteudo_id = $conteudo->id;                        
+                $respostas->save();
+            }               
+        }
+
+        // Salvando Dicas
+        $QuantidadeDicas = request('QuantidadeDicas');
+        for($i=1;$i<=$QuantidadeDicas;$i++)
+        {
+            if(request('Dica'.$i) !== NULL)
+            {
+                $dica = new ExercicioDica();
+                $dica->descricao = request('Dica'.$i);
+                $dica->conteudo_id = $conteudo->id;                        
+                $dica->save();
+            }
+        }
+
+        $conteudo->save();
+
+        return redirect ('/conteudo');
     }
 
 
     public function destroy($id)
     {
-        //
+        //$dica = App\ExercicioDica::destroy(['conteudo_id']);
+        //$respostas = App\Resposta::destroy(['conteudo_id']);
+
+        Conteudo::find($id)->delete();
+        return redirect ('/conteudo'); 
     }
 
 

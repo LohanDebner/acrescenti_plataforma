@@ -41,11 +41,11 @@
                 <div class="form-group row">
                     <label class="col-sm-1 col-form-label">Tipo de Conteudo</label>
                     <div class="col-sm-11">
-                        <select id="tipo_conteudo" class="form-control m-b" name="TipoConteudo" onchange="mostraCampo(this)">
+                        <select id="tipo_conteudo" class="form-control m-b" name="tipo_conteudo" onchange="mostrarCampo(this)">
                             <option value="0">- Selecione uma Opção -</option>
-                            <option value="1">Exercicio</option>
-                            <option value="2">Video Aula</option>
-                            <option value="3">Video Exercicio</option>
+                            <option value="1" <?php echo e($conteudo->ConteudoExercicio); ?>>Exercicio</option>
+                            <option value="2" <?php echo e($conteudo->ConteudoVideoAula); ?>>Video Aula</option>
+                            <option value="3" <?php echo e($conteudo->ConteudoVideoExercicio); ?>>Video Exercicio</option>
                         </select>
                     </div>
                 </div>
@@ -55,21 +55,21 @@
 
                 <div class="form-group row">
                     <label class="col-sm-1 col-form-label" >Titulo</label>
-                    <div class="col-sm-11"><input type="text" name="Titulo" value="<?php echo e($conteudo->Titulo); ?>" class="form-control" required></div>
+                    <div class="col-sm-11"><input type="text" name="titulo" value="<?php echo e($conteudo->titulo); ?>" class="form-control" required></div>
                 </div>
 
                 <div class="hr-line-dashed"></div>
 
                 <div class="form-group row">
                     <label class="col-sm-1 col-form-label" >Origem</label>
-                    <div class="col-sm-11"><input type="text" name="Origem" value="<?php echo e($conteudo->Origem); ?>" class="form-control"></div>
+                    <div class="col-sm-11"><input type="text" name="origem" value="<?php echo e($conteudo->origem); ?>" class="form-control"></div>
                 </div>
 
                 <div class="hr-line-dashed"></div>
 
                 <div class="form-group row">
                     <label class="col-sm-1 col-form-label" >Descrição</label>
-                    <div class="col-sm-11"><textarea rows="3" cols="40" name="Descricao" class="form-control"><?php echo e($conteudo->Descricao); ?></textarea></div>
+                    <div class="col-sm-11"><textarea rows="3" cols="40" name="descricao" class="form-control"><?php echo e($conteudo->descricao); ?></textarea></div>
                 </div>
                                  
                 <!--divExercicio -->
@@ -80,9 +80,9 @@
                     <div class="form-group row">
                         <label class="col-sm-1 col-form-label">Tipo de Exercicio</label>
                         <div class="col-sm-11">
-                            <select class="form-control m-b" name="TipoExercicio" onchange="mostraExercicio(this)">
-                                <option value="2">Dissertativa</option>
-                                <option value="1">Alternativa</option>
+                            <select class="form-control m-b" name="tipo_exercicio" id="tipo_exercicio" onchange="mostrarExercicio(this)">
+                                <option value="2" <?php echo e($conteudo->TipoExercicioDissertativa); ?>>Dissertativa</option>
+                                <option value="1" <?php echo e($conteudo->TipoExercicioAlternativa); ?>>Alternativa</option>
                             </select>
                         </div>
                     </div>
@@ -95,7 +95,22 @@
                             <label class="col-sm-1 col-form-label" >Respostas</label>
                         </div>
                         <div class="form-group row">
-                            <div id="divFlutuanteRespostas">                                                          
+                            <div id="divFlutuanteRespostas">  
+                                <?php $__currentLoopData = $resposta; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $RespostaItem): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?> 
+                                      
+                                <div id="divResposta<?php echo e($loop->iteration); ?>">
+                                    <div class='col-sm-5 col-sm-offset-1'>
+                                        <input type=text class='form-control input resposta' name="Resposta<?php echo e($loop->iteration); ?>"  id="Resposta<?php echo e($loop->iteration); ?>" value="<?php echo e($RespostaItem->valor); ?>">
+                                    </div>
+                                    <div class='col-sm-1' style='padding-top: 5px;'>
+                                        <?php if($RespostaItem->resposta_correta =='1'): ?>
+                                        <label style='padding-right: 15px;'><input class='i-checks' type='checkbox' value="1" checked name="checkResposta<?php echo e($loop->iteration); ?>"><i></i></label>
+                                        <?php else: ?>
+                                        <label style='padding-right: 15px;'><input class='i-checks' type='checkbox' value="1" name="checkResposta<?php echo e($loop->iteration); ?>"><i></i></label>
+                                        <?php endif; ?>
+                                        <button type='button' class='btn btn-danger' id="botaoRemoverResposta<?php echo e($loop->iteration); ?>" onclick='removerResposta(<?php echo e($loop->iteration); ?>)'><i class='fa fa-times'></i></button></div>
+                                    </div>    
+                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>                                                                                                          
                             </div>  
                         </div> 
                         <div class="form-group row">
@@ -107,11 +122,11 @@
                     <div id="divRespostaDissertativa">
                         <div class="form-group row">
                             <label class="col-sm-1 col-form-label">Resposta</label>
-                            <div class="col-sm-10"><textarea rows="3" cols="40" name="RespostaDissertativa" class="form-control"></textarea></div>
+                            <div class="col-sm-10"><textarea rows="3" cols="40" name="RespostaDissertativa" class="form-control"><?php echo e($RespostaItem->valor); ?></textarea></div>
                             <label style="padding-left: 15px;"><input class="i-checks" type="checkbox" value="0" checked disabled> <i></i></label>
                         </div>
                     </div> 
-                    <input type="text" name="QuantidadeRespostas" id="QuantidadeRespostas" hidden>
+                <input type="text" name="QuantidadeRespostas" id="QuantidadeRespostas" value="<?php echo e(count($resposta)); ?>" hidden>
                 </div>
 
                 <!--divVideo -->
@@ -121,7 +136,7 @@
 
                     <div class="form-group row">
                         <label class="col-sm-1 col-form-label" >Video Path</label>
-                        <div class="col-sm-11"><input type="text" name="VideoPath" value="<?php echo e($conteudo->VideoPath); ?>" class="form-control"></div>
+                        <div class="col-sm-11"><input type="text" name="video_path" value="<?php echo e($conteudo->video_path); ?>" class="form-control"></div>
                     </div>
                 </div>
 
@@ -134,14 +149,24 @@
                         <label class="col-sm-1 col-form-label" >Dicas</label>
                     </div>
                     <div class="form-group row">
-                        <div id="divFlutuanteDicas">                                                          
+                        <div id="divFlutuanteDicas"> 
+                            <?php $__currentLoopData = $dica; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $DicaItem): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?> 
+                                    
+                            <div id="divDica<?php echo e($loop->iteration); ?>">
+                                <div class='col-sm-10 col-sm-offset-1'>
+                                    <textarea rows="3" cols="40" class="form-control dica" name="Dica<?php echo e($loop->iteration); ?>" id="Dica<?php echo e($loop->iteration); ?>"><?php echo e($DicaItem->descricao); ?></textarea>
+                                </div>
+                                <div class='col-sm-1' style="padding-top: 20px;padding-bottom: 5px;">
+                                    <button type='button' class='btn btn-danger' id="botaoRemoverDica<?php echo e($loop->iteration); ?>" onclick='removerDica(<?php echo e($loop->iteration); ?>)'><i class='fa fa-times'></i></button></div>
+                                </div>    
+                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>                             
                         </div>  
                     </div> 
                     <div class="form-group row">
                         <div class="col-sm-1 col-sm-offset-1"><button type="button" class="btn btn-primary" id="botaoAdicionarDica"><i class="fa fa-plus"></i></button></div>                 
                     </div>                    
 
-                    <input type="text" name="QuantidadeDicas" id="QuantidadeDicas" hidden>
+                <input type="text" name="QuantidadeDicas" id="QuantidadeDicas" value="<?php echo e(count($dica)); ?>" hidden>
                 </div>
 
                 <div class="hr-line-dashed"></div> 
@@ -158,7 +183,7 @@
 
                 <div class="form=group row">
                     <div class="col-sm-1 col-sm-offset-10">
-                            <button type="button" class="btn btn-danger block full-width m-b">Cancelar</button>
+                            <a href="/conteudo"><button type="button" class="btn btn-danger block full-width m-b" id="botaoCancelar">Cancelar</button>
                     </div> 
                     <div class="col-sm-1 ">
                         <button type="submit" class="btn btn-primary block full-width m-b" id="botaoSalvar" disabled>Salvar</button>
@@ -166,10 +191,22 @@
                 </div>            
             
             </form> 
+            <form method="POST" action="/conteudo/<?php echo e($conteudo->id); ?>" id="formDeletar">
+                            <!-- -->
+                <?php echo e(csrf_field()); ?> 
+                <?php echo e(method_field('DELETE')); ?>
+
+
+                <div class="form=group row">
+                    <div class="col-sm-2 col-sm-offset-10">
+                        <button type="reset" id="botaoDeletar" class="btn btn-outline btn-danger btn-md block full-width m-b">Deletar</button>
+                    </div>  
+                </div>
+            </form>
 
             
             <script>
-                function mostraCampo(el) {
+                function mostrarCampo(el) {
                     switch (el.value){
                         case '0':
                             document.getElementById('divExercicio').style.display ='none';
@@ -204,7 +241,8 @@
                 };
             </script>
 
-            <script>function mostraExercicio(el) {
+            <script>
+                function mostrarExercicio(el) {
                     switch (el.value){
                         case '1':
                             document.getElementById('divRespostaAlternativa').style.display ='block';
@@ -225,9 +263,18 @@
             </script>
         
             <script>
+                     $(document).ready(function() {
+                        
+                        mostrarCampo(document.getElementById("tipo_conteudo"));
+                        mostrarExercicio(document.getElementById("tipo_exercicio"));
+                        
+                            
+                                                           
+                    });
+
                     $(document).ready(function() {
                 
-                        var iCnt = 0;
+                        var iCnt = parseInt(document.getElementById("QuantidadeRespostas").value);
                                                     
                         $('#botaoAdicionarResposta').click(function() {
                                                                     
@@ -248,7 +295,7 @@
                     
                     $(document).ready(function() {
                 
-                        var iCntDica = 0;
+                        var iCntDica = parseInt(document.getElementById("QuantidadeDicas").value);;
                                                     
                         $('#botaoAdicionarDica').click(function() {
                                                                     

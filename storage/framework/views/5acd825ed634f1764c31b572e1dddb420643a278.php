@@ -55,16 +55,16 @@
                                         <tbody>
                                         <?php $__currentLoopData = $aluno; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>      
                                             <tr>
-                                                <td><a href="#contact-1" class="client-link"><?php echo e($item->Nome); ?></a></td>
+                                                <td><a href="#contact-1" class="client-link"><?php echo e($item->nome); ?></a></td>
                                                 <td class="contact-type"><i class="fa fa-phone"> </i></td>
-                                                <td> <?php echo e($item->Telefone1); ?></td>
+                                                <td> <?php echo e($item->telefone_1); ?></td>
                                                 <td class="contact-type"><i class="fa fa-envelope"> </i></td>
-                                                <td> <?php echo e($item->Email); ?></td>
+                                                <td> <?php echo e($item->email); ?></td>
 
-                                                <?php if($item->StatusAluno =="Ativo"): ?>
-                                                <td class="client-status"><span class="label label-primary"><?php echo e($item->StatusAluno); ?></span></td> 
+                                                <?php if($item->status_aluno =="Ativo"): ?>
+                                                <td class="client-status"><span class="label label-primary"><?php echo e($item->status_aluno); ?></span></td> 
                                                 <?php else: ?>
-                                                <td class="client-status"><span class="label label-danger"><?php echo e($item->StatusAluno); ?></span></td>   
+                                                <td class="client-status"><span class="label label-danger"><?php echo e($item->status_aluno); ?></span></td>   
                                                 <?php endif; ?>     
                                                 <td><a href="aluno/<?php echo e($item->id); ?>/edit" class="btn btn-white btn-bitbucket"><i class="fa fa-wrench"></i></td>                                                                                                                        
                                             </tr>    

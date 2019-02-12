@@ -56,14 +56,14 @@
                                         <tbody>
                                         @foreach ($conteudo as $item)      
                                             <tr>
-                                                <td><a href="#contact-1" class="client-link">{{$item->Titulo}}</a></td>                                                
-                                                <td> {{ $item->Descricao}}</td>
-                                                @if ($item->TipoConteudo =="Exercicio")
-                                                <td class="client-status"><span class="label label-primary">{{$item->TipoConteudo}}</span></td> 
-                                                @elseif ($item->TipoConteudo =="Video Aula")
-                                                <td class="client-status"><span class="label label-success">{{$item->TipoConteudo}}</span></td>
+                                                <td><a href="#contact-1" class="client-link">{{$item->titulo}}</a></td>                                                
+                                                <td> {{ $item->descricao}}</td>
+                                                @if ($item->tipo_conteudo =="Exercicio")
+                                                <td class="client-status"><span class="label label-primary">{{$item->tipo_conteudo}}</span></td> 
+                                                @elseif ($item->tipo_conteudo =="Video Aula")
+                                                <td class="client-status"><span class="label label-success">{{$item->tipo_conteudo}}</span></td>
                                                 @else   
-                                                <td class="client-status"><span class="label label-info">{{$item->TipoConteudo}}</span></td>
+                                                <td class="client-status"><span class="label label-info">{{$item->tipo_conteudo}}</span></td>
                                                 @endif     
                                                 <td><a href="conteudo/{{$item->id}}/edit" class="btn btn-white btn-bitbucket"><i class="fa fa-wrench"></i></td>                                                                                                                        
                                             </tr>    

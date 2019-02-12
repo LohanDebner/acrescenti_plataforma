@@ -15,12 +15,12 @@ class CreateConteudoTable extends Migration
     {
         Schema::create('Conteudos',function(Blueprint $table){
             $table->increments('id')->unique();
-            $table->string('Titulo');
-            $table->string('Origem');
-            $table->string('Descricao');
-            $table->integer('TipoConteudo');
-            $table->integer('TipoExercicio');	
-            $table->string('VideoPath');
+            $table->string('titulo');
+            $table->string('origem');
+            $table->string('descricao');
+            $table->integer('tipo_conteudo');
+            $table->integer('tipo_exercicio');	
+            $table->string('video_path');
             $table->timestamps();
         });
     }

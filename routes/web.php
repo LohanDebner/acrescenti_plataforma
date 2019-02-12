@@ -26,24 +26,10 @@ Route::get('/', 'HomeController@index')->name("main");
 Route::get('/minor', 'HomeController@minor')->name("minor");
 
 
-//Route::resource('/projects','ProjectsController');
+
 Route::resource('/aluno','AlunoController'); 
-//Route::resource('/conteudoAnexos','ConteudoAnexosController'); 
+//Route::resource('/conteudoAnexo','ConteudoAnexoController'); 
 Route::resource('/conteudo','ConteudoController'); 
-//Route::resource('/exercicioDicas','ExercicioDicasController'); 
-//Route::resource('/respostas','RespostasController'); 
-
-/*
-Route::get('/projects','ProjectsController@index');
-Route::get('/projects/create','ProjectsController@create');
-Route::get('/projects/{project}','ProjectsController@show');
-Route::post('/projects','ProjectsController@store');
-Route::get('/projects/{project}/edit','ProjectsController@update');
-Route::patch('/projects/{project}','ProjectsController@index');
-Route::delete('/projects/{project}','ProjectsController@destroy');
-*/
-
-
-//Route::get('/contato', 'NovoController@novo');
-//Route::get('/contato', 'OutrosController@contato')->name("contato");
+//Route::resource('/exercicioDica','ExercicioDicaController'); 
+//Route::resource('/resposta','RespostaController'); 
 

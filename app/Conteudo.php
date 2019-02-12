@@ -9,6 +9,11 @@ class Conteudo extends Model
     //
     public function respostas()
     {
-        return $this->hasMany(Respostas::class, 'conteudo_id');
+        return $this->hasMany(Resposta::class, 'conteudo_id');
+    }
+
+    public function dicas()
+    {
+        return $this->hasMany(ExercicioDica::class,'conteudo_id');
     }
 }

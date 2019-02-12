@@ -38,33 +38,33 @@
                 
                 <div class="form-group row">
                         <label class="col-sm-1 col-form-label" >Nome</label>
-                        <div class="col-sm-11"><input type="text" name="Nome" class="form-control" value="<?php echo e($aluno->Nome); ?>" required></div>
+                        <div class="col-sm-11"><input type="text" name="nome" class="form-control" value="<?php echo e($aluno->nome); ?>" required></div>
                     </div>
     
                     <div class="hr-line-dashed"></div>
     
                     <div class="form-group  row">
                             <label class="col-sm-1 col-form-label">CPF</label>
-                            <div class="col-md-2"> <input type="text" name="CPF" data-mask="999.999.999-99" class="form-control" value="<?php echo e($aluno->CPF); ?>" required></div>                        
+                            <div class="col-md-2"> <input type="text" name="cpf" data-mask="999.999.999-99" class="form-control" value="<?php echo e($aluno->cpf); ?>" required></div>                        
                     </div>
     
                     <div class="hr-line-dashed"></div>  
     
                     <div class="form-group  row">
                          <label class="col-sm-1 col-form-label">RG</label>
-                         <div class="col-md-3"><input type="text" name="RG" class="form-control" value="<?php echo e($aluno->RG); ?>" required></div>
+                         <div class="col-md-3"><input type="text" name="rg" class="form-control" value="<?php echo e($aluno->rg); ?>" required></div>
     
                          <label class="col-md-1 col-form-label">Emissor RG</label>
-                         <div class="col-md-3"><input type="text" name="EmissorRG" class="form-control" value="<?php echo e($aluno->EmissorRG); ?>"></div>
+                         <div class="col-md-3"><input type="text" name="emissor_rg" class="form-control" value="<?php echo e($aluno->emissor_rg); ?>"></div>
                     </div>
     
                      <div class="hr-line-dashed"></div> 
     
                      <div class="form-group  row">
                         <label class="col-md-1 col-form-label">Sexo</label>
-                        <div class="col-sm-2"><div class="i-checks"><label> <input type="radio" value="1" name="Sexo" <?php echo e($aluno->SexoMasculino); ?>> <i></i> Masculino</label></div></div>
-                        <div class="col-sm-2"><div class="i-checks"><label> <input type="radio" value="2" name="Sexo" <?php echo e($aluno->SexoFeminino); ?>> <i></i> Feminino</label></div></div>
-                        <div class="col-sm-2"><div class="i-checks"><label> <input type="radio" value="0" name="Sexo" <?php echo e($aluno->SexoIndefinido); ?>> <i></i> Indefinido</label></div></div>
+                        <div class="col-sm-2"><div class="i-checks"><label> <input type="radio" value="1" name="sexo" <?php echo e($aluno->sexo_masculino); ?>> <i></i> Masculino</label></div></div>
+                        <div class="col-sm-2"><div class="i-checks"><label> <input type="radio" value="2" name="sexo" <?php echo e($aluno->sexo_feminino); ?>> <i></i> Feminino</label></div></div>
+                        <div class="col-sm-2"><div class="i-checks"><label> <input type="radio" value="0" name="sexo" <?php echo e($aluno->sexo_indefinido); ?>> <i></i> Indefinido</label></div></div>
                     </div>
     
                     <div class="hr-line-dashed"></div>
@@ -74,7 +74,7 @@
                             <label class="col-md-1 col-form-label">Data de Nascimento</label>
                             <div class="col-md-2 input-group date" style="padding-left: 15px;">
                                 <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
-                                <input type="text" name="DataNascimento" class="form-control" value="<?php echo e($aluno->DataNascimento); ?>" readonly="readonly">
+                                <input type="text" name="data_nascimento" class="form-control" value="<?php echo e($aluno->data_nascimento); ?>" readonly="readonly">
                             </div>
                          </div>
                     </div>     
@@ -83,13 +83,13 @@
     
                     <div class="form-group row">
                         <label class="col-md-1 col-form-label">Telefone 1</label>
-                        <div class="col-md-2"><input type="text" name="Telefone1" class="form-control telefone"  placeholder="" value="<?php echo e($aluno->Telefone1); ?>"><span class="form-text"></span></div>      
+                        <div class="col-md-2"><input type="text" name="telefone_1" class="form-control telefone"  placeholder="" value="<?php echo e($aluno->telefone_1); ?>"><span class="form-text"></span></div>      
                     
                         <label class="col-md-1 col-form-label">Telefone 2</label>
-                        <div class="col-md-2"><input type="text" name="Telefone2" class="form-control telefone"  placeholder="" value="<?php echo e($aluno->Telefone2); ?>"><span class="form-text"></span></div>      
+                        <div class="col-md-2"><input type="text" name="telefone_2" class="form-control telefone"  placeholder="" value="<?php echo e($aluno->telefone_2); ?>"><span class="form-text"></span></div>      
                     
                         <label class="col-md-1 col-form-label">Telefone 3</label>
-                        <div class="col-md-2"><input type="text" name="Telefone3" class="form-control telefone"  placeholder="" value="<?php echo e($aluno->Telefone3); ?>"><span class="form-text"></span></div>      
+                        <div class="col-md-2"><input type="text" name="telefone_3" class="form-control telefone"  placeholder="" value="<?php echo e($aluno->telefone_3); ?>"><span class="form-text"></span></div>      
     
                     </div>
      
@@ -97,14 +97,14 @@
     
                     <div class="form-group  row">
                             <label class="col-md-1 col-form-label">Email</label>
-                            <div class="col-md-11"><input type="text"name="Email" class="form-control" value="<?php echo e($aluno->Email); ?>"></div>
+                            <div class="col-md-11"><input type="text"name="email" class="form-control" value="<?php echo e($aluno->email); ?>"></div>
                         </div>
     
                     <div class="hr-line-dashed"></div>   
     
                      <div class="form-group row">
                             <label class="col-md-1 col-form-label">CEP</label>
-                            <div class="col-sm-2"><input type="text"name="CEP" class="form-control" data-mask="99999-999" placeholder="" value="<?php echo e($aluno->CEP); ?>"><span class="form-text"></span></div>
+                            <div class="col-sm-2"><input type="text"name="cep" class="form-control" data-mask="99999-999" placeholder="" value="<?php echo e($aluno->cep); ?>"><span class="form-text"></span></div>
                     </div>                                                                                 
                                 
     
@@ -112,13 +112,13 @@
     
                     <div class="form-group  row">
                         <label class="col-sm-1 col-form-label">Endereço</label>
-                        <div class="col-md-4"><input type="text" name="Endereco" class="form-control" value="<?php echo e($aluno->Endereco); ?>"></div>
+                        <div class="col-md-4"><input type="text" name="endereco" class="form-control" value="<?php echo e($aluno->endereco); ?>"></div>
     
                         <label class="col-sm-1 col-form-label">Número</label>
-                        <div class="col-md-1"><input type="text" name="EnderecoNum" class="form-control" value="<?php echo e($aluno->EnderecoNum); ?>"></div>
+                        <div class="col-md-1"><input type="text" name="endereco_num" class="form-control" value="<?php echo e($aluno->endereco_num); ?>"></div>
     
                         <label class="col-sm-1 col-form-label">Complemento</label>
-                        <div class="col-md-4"><input type="text" name="EnderecoComp" class="form-control" value="<?php echo e($aluno->EnderecoComp); ?>"></div>
+                        <div class="col-md-4"><input type="text" name="endereco_comp" class="form-control" value="<?php echo e($aluno->endereco_comp); ?>"></div>
     
                     </div>
     
@@ -126,13 +126,13 @@
     
                     <div class="form-group  row">
                         <label class="col-sm-1 col-form-label">Bairro</label>
-                        <div class="col-md-4"><input type="text" name="Bairro" class="form-control" value="<?php echo e($aluno->Bairro); ?>"></div>
+                        <div class="col-md-4"><input type="text" name="bairro" class="form-control" value="<?php echo e($aluno->bairro); ?>"></div>
     
                         <label class="col-sm-1 col-form-label">Cidade</label>
-                        <div class="col-md-4"><input type="text" name="Cidade" class="form-control" value="<?php echo e($aluno->Cidade); ?>"></div>
+                        <div class="col-md-4"><input type="text" name="cidade" class="form-control" value="<?php echo e($aluno->cidade); ?>"></div>
     
                         <label class="col-sm-1 col-form-label">Estado</label>
-                        <div class="col-md-1"><input type="text" name="Estado" class="form-control" value="<?php echo e($aluno->Estado); ?>"></div>
+                        <div class="col-md-1"><input type="text" name="estado" class="form-control" value="<?php echo e($aluno->estado); ?>"></div>
                     </div>
     
                     <div class="hr-line-dashed"></div>
@@ -142,7 +142,7 @@
                             <label class="col-md-1 col-form-label">Data de Ingresso</label>
                             <div class="col-md-2 input-group date" style="padding-left: 15px;">
                                 <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
-                                <input type="text" name="DataIngresso" class="form-control" value="<?php echo e($aluno->DataIngresso); ?>" readonly="readonly">
+                                <input type="text" name="data_ingresso" class="form-control" value="<?php echo e($aluno->data_ingresso); ?>" readonly="readonly">
                             </div>
                         </div>
                     </div>      
@@ -151,21 +151,21 @@
         
                     <div class="form-group row">
                         <label class="col-md-1 col-form-label">Possui Responsável?</label>
-                        <div class="col-md-1" style="padding-left: 15px;"><input type="checkbox" id="possui_responsavel_switch" name="PossuiResponsavel" class="js-switch"  style="display: none;" onchange="mostrarResponsavel()" <?php echo e($aluno->PossuiResponsavel); ?>></div>
+                        <div class="col-md-1" style="padding-left: 15px;"><input type="checkbox" id="possui_responsavel_switch" name="possui_responsavel" class="js-switch"  style="display: none;" onchange="mostrarResponsavel()" <?php echo e($aluno->PossuiResponsavel); ?>></div>
                     </div>
     
                     <div id="divResponsavel"  <?php echo e($aluno->divPossuiResponsavel); ?>>
                         
                         <div class="form-group  row">
                             <label class="col-sm-1 col-form-label">Nome Responsável</label>
-                            <div class="col-md-11"><input type="text" name="NomeResponsavel" class="form-control" value="<?php echo e($aluno->NomeResponsavel); ?>"></div>
+                            <div class="col-md-11"><input type="text" name="nome_responsavel" class="form-control" value="<?php echo e($aluno->nome_responsavel); ?>"></div>
                         </div>
         
                         <div class="hr-line-dashed"></div>
     
                         <div class="form-group  row">
                             <label class="col-sm-1 col-form-label">CPF Responsável</label>
-                            <div class="col-md-2"> <input type="text" name="CPFResponsavel" data-mask="999.999.999-99" class="form-control" value="<?php echo e($aluno->CPFResponsavel); ?>"></div>                        
+                            <div class="col-md-2"> <input type="text" name="cpf_responsavel" data-mask="999.999.999-99" class="form-control" value="<?php echo e($aluno->cpf_responsavel); ?>"></div>                        
                         </div>
                     </div>
                     
@@ -173,8 +173,8 @@
     
                      <div class="form-group  row">
                         <label class="col-md-1 col-form-label">Status</label>
-                        <div class="col-sm-2"><div class="i-checks"><label> <input type="radio" value="1" name="StatusAluno" <?php echo e($aluno->StatusAlunoAtivo); ?>><i></i> Ativo</label></div></div>
-                        <div class="col-sm-2"><div class="i-checks"><label> <input type="radio" value="0" name="StatusAluno" <?php echo e($aluno->StatusAlunoInativo); ?>><i></i> Inativo</label></div></div>
+                        <div class="col-sm-2"><div class="i-checks"><label> <input type="radio" value="1" name="status_aluno" <?php echo e($aluno->status_aluno_ativo); ?>><i></i> Ativo</label></div></div>
+                        <div class="col-sm-2"><div class="i-checks"><label> <input type="radio" value="0" name="status_aluno" <?php echo e($aluno->status_aluno_inativo); ?>><i></i> Inativo</label></div></div>
                     
                     </div>
     

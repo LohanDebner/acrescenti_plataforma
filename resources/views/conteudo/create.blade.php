@@ -40,7 +40,7 @@
                 <div class="form-group row">
                     <label class="col-sm-1 col-form-label">Tipo de Conteudo</label>
                     <div class="col-sm-11">
-                        <select id="tipo_conteudo" class="form-control m-b" name="TipoConteudo" onchange="mostraCampo(this)">
+                        <select id="tipo_conteudo" class="form-control m-b" name="tipo_conteudo" onchange="mostrarCampo(this)">
                             <option value="0">- Selecione uma Opção -</option>
                             <option value="1">Exercicio</option>
                             <option value="2">Video Aula</option>
@@ -54,21 +54,21 @@
 
                 <div class="form-group row">
                     <label class="col-sm-1 col-form-label" >Titulo</label>
-                    <div class="col-sm-11"><input type="text" name="Titulo" class="form-control" required></div>
+                    <div class="col-sm-11"><input type="text" name="titulo" class="form-control" required></div>
                 </div>
 
                 <div class="hr-line-dashed"></div>
 
                 <div class="form-group row">
                     <label class="col-sm-1 col-form-label" >Origem</label>
-                    <div class="col-sm-11"><input type="text" name="Origem" class="form-control"></div>
+                    <div class="col-sm-11"><input type="text" name="origem" class="form-control"></div>
                 </div>
 
                 <div class="hr-line-dashed"></div>
 
                 <div class="form-group row">
                     <label class="col-sm-1 col-form-label" >Descrição</label>
-                    <div class="col-sm-11"><textarea rows="3" cols="40" name="Descricao" class="form-control"></textarea></div>
+                    <div class="col-sm-11"><textarea rows="3" cols="40" name="descricao" class="form-control"></textarea></div>
                 </div>
                                  
                 <!--divExercicio -->
@@ -79,7 +79,7 @@
                     <div class="form-group row">
                         <label class="col-sm-1 col-form-label">Tipo de Exercicio</label>
                         <div class="col-sm-11">
-                            <select class="form-control m-b" name="TipoExercicio" onchange="mostraExercicio(this)">
+                            <select class="form-control m-b" name="tipo_exercicio" onchange="mostrarExercicio(this)">
                                 <option value="2">Dissertativa</option>
                                 <option value="1">Alternativa</option>
                             </select>
@@ -120,7 +120,7 @@
 
                     <div class="form-group row">
                         <label class="col-sm-1 col-form-label" >Video Path</label>
-                        <div class="col-sm-11"><input type="text" name="VideoPath" class="form-control"></div>
+                        <div class="col-sm-11"><input type="text" name="video_path" class="form-control"></div>
                     </div>
                 </div>
 
@@ -168,7 +168,7 @@
 
             
             <script>
-                function mostraCampo(el) {
+                function mostrarCampo(el) {
                     switch (el.value){
                         case '0':
                             document.getElementById('divExercicio').style.display ='none';
@@ -203,7 +203,7 @@
                 };
             </script>
 
-            <script>function mostraExercicio(el) {
+            <script>function mostrarExercicio(el) {
                     switch (el.value){
                         case '1':
                             document.getElementById('divRespostaAlternativa').style.display ='block';

@@ -56,18 +56,18 @@
                                         <tbody>
                                         @foreach ($aluno as $item)      
                                             <tr>
-                                                <td><a href="#contact-1" class="client-link">{{$item->Nome}}</a></td>
+                                                <td><a href="#contact-1" class="client-link">{{$item->nome}}</a></td>
                                                 <td class="contact-type"><i class="fa fa-phone"> </i></td>
-                                                <td> {{ $item->Telefone1}}</td>
+                                                <td> {{ $item->telefone_1}}</td>
                                                 <td class="contact-type"><i class="fa fa-envelope"> </i></td>
-                                                <td> {{ $item->Email}}</td>
+                                                <td> {{ $item->email}}</td>
 
-                                                @if ($item->StatusAluno =="Ativo")
-                                                <td class="client-status"><span class="label label-primary">{{$item->StatusAluno}}</span></td> 
+                                                @if ($item->status_aluno =="Ativo")
+                                                <td class="client-status"><span class="label label-primary">{{$item->status_aluno}}</span></td> 
                                                 @else
-                                                <td class="client-status"><span class="label label-danger">{{$item->StatusAluno}}</span></td>   
+                                                <td class="client-status"><span class="label label-danger">{{$item->status_aluno}}</span></td>   
                                                 @endif     
-                                                <td><a href="aluno/{{$item->ID}}/edit" class="btn btn-white btn-bitbucket"><i class="fa fa-wrench"></i></td>                                                                                                                        
+                                                <td><a href="aluno/{{$item->id}}/edit" class="btn btn-white btn-bitbucket"><i class="fa fa-wrench"></i></td>                                                                                                                        
                                             </tr>    
                                         @endforeach
                                         </tbody>
